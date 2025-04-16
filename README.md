@@ -1,3 +1,3 @@
 # MyStyle-AI
 
-![alt text](image.png)
+<img src="image.png" alt="MyStyle-AI Logo" width="250"/>
