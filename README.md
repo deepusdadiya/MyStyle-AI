@@ -1,3 +1,3 @@
 # MyStyle-AI
 
-<img src="image.png" alt="MyStyle-AI Logo" width="250"/>
+<img src="image.png" alt="MyStyle-AI Logo" width="160"/>
