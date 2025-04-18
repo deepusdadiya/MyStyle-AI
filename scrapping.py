@@ -3,12 +3,25 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import pandas as pd
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+
 
 # --- Setup Chrome Options ---
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # Run in background
+# chrome_options.add_argument("--headless")  # Run in background
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--no-sandbox")
+
+chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36")
+chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+chrome_options.add_experimental_option('useAutomationExtension', False)
+
+# Updated ChromeDriver init
+service = Service()
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # --- Set up ChromeDriver ---
 driver = webdriver.Chrome(options=chrome_options)
@@ -24,7 +37,12 @@ for page in range(1, 6):
     print(f"Scraping page {page}...")
     url = f"{BASE_URL}?p={page}"
     driver.get(url)
-    time.sleep(3)  # Let the page load completely
+    driver.save_screenshot(f"debug_page_{page}.png")
+
+    # Wait for products to load
+    WebDriverWait(driver, 20).until(
+        EC.presence_of_all_elements_located((By.CLASS_NAME, "product-product"))
+    )
 
     # Get all product containers
     products = driver.find_elements(By.CLASS_NAME, "product-base")
@@ -43,8 +61,13 @@ for page in range(1, 6):
             product_id = product_link.split("/")[-1].split("?")[0]
             name = driver.find_element(By.CLASS_NAME, "pdp-title").text
             brand = driver.find_element(By.CLASS_NAME, "pdp-brand").text
-            price = driver.find_element(By.CLASS_NAME, "pdp-price").text.split()[1]
+            try:
+                price_text = driver.find_element(By.CLASS_NAME, "pdp-price").text
+                price = ''.join(filter(str.isdigit, price_text))
+            except:
+                price = "N/A"
             image_url = driver.find_element(By.CLASS_NAME, "image-grid-image").get_attribute("src")
+            print(f"Parsed: {name} | {brand} | ₹{price}")
 
             # Try to extract description, rating, and stock status
             try:
@@ -90,4 +113,4 @@ for page in range(1, 6):
 driver.quit()
 df = pd.DataFrame(all_products)
 df.to_csv("myntra_men_shoes_detailed.csv", index=False)
-print("✅ Scraping complete! Data saved to myntra_men_shoes_detailed.csv")
+print("Scraping complete! Data saved to myntra_men_shoes_detailed.csv")
