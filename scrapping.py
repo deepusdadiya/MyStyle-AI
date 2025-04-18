@@ -18,6 +18,7 @@ chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
 chrome_options.add_experimental_option('useAutomationExtension', False)
+chrome_options.add_argument("--headless=new")
 
 # Updated ChromeDriver init
 service = Service()
@@ -37,7 +38,7 @@ for page in range(1, 6):
     print(f"Scraping page {page}...")
     url = f"{BASE_URL}?p={page}"
     driver.get(url)
-    driver.save_screenshot(f"debug_page_{page}.png")
+    # driver.save_screenshot(f"debug_page_{page}.png")
 
     # Wait for products to load
     WebDriverWait(driver, 20).until(
@@ -52,38 +53,51 @@ for page in range(1, 6):
             # Get product link
             link_tag = product.find_element(By.TAG_NAME, "a")
             product_link = link_tag.get_attribute("href")
-            driver.execute_script("window.open('');")  # Open new tab
-            driver.switch_to.window(driver.window_handles[1])
+            # driver.execute_script("window.open('');")  # Open new tab
+            # driver.switch_to.window(driver.window_handles[1])
             driver.get(product_link)
-            time.sleep(2)
+            # time.sleep(2)
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//h1[@class='pdp-title']")))
 
             # --- Extract details ---
-            product_id = product_link.split("/")[-1].split("?")[0]
-            name = driver.find_element(By.CLASS_NAME, "pdp-title").text
-            brand = driver.find_element(By.CLASS_NAME, "pdp-brand").text
+            product_id = product_link.split("/")[-2]
+            name = driver.find_element(By.XPATH, "//h1[@class='pdp-title']").text
+            brand = driver.find_element(By.XPATH, "//h1[@class='pdp-title']/following-sibling::h1").text
             try:
-                price_text = driver.find_element(By.CLASS_NAME, "pdp-price").text
-                price = ''.join(filter(str.isdigit, price_text))
+                price = driver.find_element(By.XPATH, "//span[contains(@class, 'pdp-price')]").text
+                price = ''.join(filter(str.isdigit, price))
             except:
                 price = "N/A"
-            image_url = driver.find_element(By.CLASS_NAME, "image-grid-image").get_attribute("src")
-            print(f"Parsed: {name} | {brand} | ₹{price}")
+            try:
+                image_url = driver.find_element(By.XPATH, "(//img[contains(@src, 'assets.myntassets.com')])[1]").get_attribute("src")
+            except:
+                image_url = "N/A"
+            print("Page source saved for debugging image:", product_link)
+            with open("debug_image.html", "w", encoding="utf-8") as f:
+                f.write(driver.page_source)
 
             # Try to extract description, rating, and stock status
             try:
-                description = driver.find_element(By.CLASS_NAME, "index-rowInfo").text
+                description = driver.find_element(By.XPATH, "//div[@class='index-rowInfo']").text
             except:
-                description = "N/A"
+                try:
+                    description = driver.find_element(By.XPATH, "//div[@class='pdp-productDescriptorsContainer']").text
+                except:
+                    description = "N/A"
 
             try:
-                rating = driver.find_element(By.CLASS_NAME, "index-overallRating").text
+                raw_rating = driver.find_element(By.XPATH, "//div[contains(@class,'index-overallRating')]").text
+                rating = raw_rating.replace("\n", " | ")
             except:
                 rating = "N/A"
 
             try:
-                stock_status = "In Stock" if driver.find_element(By.CLASS_NAME, "pdp-add-to-bag").is_displayed() else "Out of Stock"
+                stock_button = driver.find_element(By.XPATH, "//div[contains(text(),'ADD TO BAG')]")
+                stock_status = "In Stock"
             except:
-                stock_status = "Unknown"
+                stock_status = "Out of Stock or Unavailable"
+
+            print(f"Parsed: {name} | {brand} | ₹{price} | {rating} | {stock_status}")
 
             # --- Save the product data ---
             all_products.append({
@@ -99,8 +113,11 @@ for page in range(1, 6):
                 "product_link": product_link
             })
 
-            driver.close()  # Close the tab
-            driver.switch_to.window(driver.window_handles[0])  # Back to main page
+            # driver.close()  # Close the tab
+            # driver.switch_to.window(driver.window_handles[0])  # Back to main page
+
+            driver.back()
+            WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "product-base")))
 
         except Exception as e:
             print("Error:", e)
