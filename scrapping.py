@@ -33,8 +33,8 @@ BASE_URL = "https://www.myntra.com/men-shoes"
 # --- Store all product data here ---
 all_products = []
 
-# --- Loop through first 5 pages ---
-for page in range(1, 6):
+# --- Loop through first 100 pages ---
+for page in range(1, 101):
     print(f"Scraping page {page}...")
     url = f"{BASE_URL}?p={page}"
     driver.get(url)
