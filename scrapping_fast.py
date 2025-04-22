@@ -8,13 +8,13 @@ CATEGORIES = [
     # {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
     # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
     # {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
-    # {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
+    {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
     # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
     # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
     # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
     # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
     # {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
-    {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
+    # {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
 ]
 NUM_PAGES = 25
 MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
