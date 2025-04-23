@@ -8,15 +8,15 @@ CATEGORIES = [
     # {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
     # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
     # {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
-    {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
+    # {"name": "Men Jeans 26-50", "url": "https://www.myntra.com/men-jeans"},
     # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
     # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
     # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
     # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
     # {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
-    # {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
+    {"name": "Women Trousers 26-50", "url": "https://www.myntra.com/women-trousers"},
 ]
-NUM_PAGES = 25
+NUM_PAGES = 50
 MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
 MAX_RETRIES = 2                    # Retry a failed page
 DELAY_BETWEEN_REQUESTS = (0.5, 2)  # Range of sleep between tasks
@@ -108,8 +108,7 @@ async def scrape_product_detail(context, product_link, category_name):
 
 async def scrape_listing_page(context, listing_page, page_num, category):
     url = f"{category['url']}?p={page_num}"
-    # url = f"{BASE_URL}?p={page_num}"
-    print(f"\n--- Scraping {category['name']} page {page_num} ---")
+    print(f"--- Scraping {category['name']} page {page_num} ---")
     try:
         await listing_page.goto(url, timeout=30000)
         await listing_page.wait_for_selector(".product-base", timeout=10000)
@@ -134,7 +133,7 @@ async def scrape_all_pages_for_category(context, category):
     category_products = []
 
     try:
-        for page_num in range(1, NUM_PAGES + 1):
+        for page_num in range(26, NUM_PAGES + 1):
             await page.goto(f"{category['url']}?p={page_num}", timeout=30000)
             await page.wait_for_selector(".product-base", timeout=10000)
 
