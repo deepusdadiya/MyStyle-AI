@@ -1,0 +1,1201 @@
+order_id,product_id,order_date,order_status,support_issue
+ORD-495705,29849353,09/03/25,Delivered,Order not delivered
+ORD-559862,22067584,06/02/25,Pending,Delayed delivery
+ORD-876396,26616540,27/03/25,Cancelled,Wrong item received
+ORD-197106,32158503,20/03/25,Shipped,Wrong item received
+ORD-809560,12397952,10/02/25,Shipped,Refund not received
+ORD-927397,26209132,01/03/25,Shipped,Return request
+ORD-863898,20123830,03/04/25,Returned,Refund not received
+ORD-921181,26040350,07/04/25,Shipped,Wrong item received
+ORD-945916,31069764,11/03/25,Pending,Return request
+ORD-661974,27281838,17/02/25,Shipped,Return request
+ORD-235955,30842299,27/02/25,Returned,Wrong item received
+ORD-490372,32715745,14/02/25,Shipped,Delayed delivery
+ORD-259637,31609694,24/02/25,Delivered,Delayed delivery
+ORD-469249,29934865,26/02/25,Shipped,Refund not received
+ORD-366220,32650600,29/03/25,Delivered,Order not delivered
+ORD-497764,31405793,31/01/25,Pending,Return request
+ORD-332756,31794102,12/04/25,Pending,Wrong item received
+ORD-156580,10969910,16/02/25,Shipped,Order not delivered
+ORD-247459,28286174,15/04/25,Pending,Return request
+ORD-439841,26055022,17/04/25,Returned,Order not delivered
+ORD-902443,30010580,11/02/25,Shipped,Delayed delivery
+ORD-207792,24285998,28/01/25,Cancelled,Wrong item received
+ORD-657048,27557748,18/02/25,Shipped,Refund not received
+ORD-581156,25354456,11/04/25,Shipped,Order not delivered
+ORD-580268,30161653,24/04/25,Pending,Delayed delivery
+ORD-624980,32179906,17/03/25,Shipped,Refund not received
+ORD-482088,30424888,25/01/25,Returned,Refund not received
+ORD-235180,31598426,08/03/25,Cancelled,Refund not received
+ORD-192192,26738178,06/03/25,Cancelled,Order not delivered
+ORD-564196,18838832,08/03/25,Returned,Delayed delivery
+ORD-171489,31926573,11/04/25,Returned,Delayed delivery
+ORD-428411,31174420,31/03/25,Delivered,Refund not received
+ORD-777191,24316684,08/02/25,Cancelled,Delayed delivery
+ORD-751792,30461444,18/03/25,Pending,Order not delivered
+ORD-865897,32155413,11/04/25,Shipped,Wrong item received
+ORD-139096,23808148,07/02/25,Cancelled,Delayed delivery
+ORD-278281,29857384,14/03/25,Returned,Order not delivered
+ORD-463781,30069287,30/03/25,Pending,Refund not received
+ORD-884083,25816664,15/02/25,Cancelled,Delayed delivery
+ORD-996476,9951411,05/04/25,Cancelled,Order not delivered
+ORD-116532,14138032,06/02/25,Cancelled,Refund not received
+ORD-258712,30184599,26/03/25,Shipped,Delayed delivery
+ORD-517908,21630970,26/02/25,Returned,Delayed delivery
+ORD-605728,31196565,15/02/25,Shipped,Return request
+ORD-515857,31120568,24/02/25,Shipped,Return request
+ORD-349730,15108174,11/04/25,Delivered,Return request
+ORD-782953,29835898,28/01/25,Pending,Return request
+ORD-612077,31423166,11/03/25,Cancelled,Wrong item received
+ORD-569934,29796122,19/04/25,Shipped,Order not delivered
+ORD-424358,23338540,15/04/25,Cancelled,Refund not received
+ORD-607241,24298026,16/03/25,Pending,Return request
+ORD-770345,19190500,25/03/25,Returned,Order not delivered
+ORD-921992,30257319,13/04/25,Pending,Delayed delivery
+ORD-975135,30715795,27/01/25,Pending,Delayed delivery
+ORD-389027,29876525,22/04/25,Shipped,Wrong item received
+ORD-731938,31939478,13/02/25,Returned,Wrong item received
+ORD-233144,14637754,24/03/25,Delivered,Refund not received
+ORD-758437,27458054,11/03/25,Delivered,Wrong item received
+ORD-612726,27997278,21/04/25,Shipped,Delayed delivery
+ORD-909597,29001200,06/03/25,Pending,Delayed delivery
+ORD-594830,30306460,08/02/25,Delivered,Refund not received
+ORD-423358,22241406,31/01/25,Pending,Refund not received
+ORD-328659,32321233,25/03/25,Returned,Return request
+ORD-475068,29912103,06/03/25,Delivered,Return request
+ORD-326821,26101798,11/03/25,Cancelled,Delayed delivery
+ORD-674353,24801394,14/02/25,Pending,Wrong item received
+ORD-522538,32756182,07/03/25,Returned,Order not delivered
+ORD-916613,30480012,07/04/25,Shipped,Delayed delivery
+ORD-243959,31614649,24/02/25,Shipped,Return request
+ORD-316334,26376306,05/04/25,Shipped,Wrong item received
+ORD-496266,30766874,08/04/25,Delivered,Refund not received
+ORD-775188,30195738,11/04/25,Shipped,Wrong item received
+ORD-497766,27412654,12/02/25,Pending,Delayed delivery
+ORD-701724,16814730,19/02/25,Returned,Order not delivered
+ORD-965321,30161724,16/04/25,Delivered,Order not delivered
+ORD-545807,21142110,14/02/25,Cancelled,Order not delivered
+ORD-736830,29936232,07/03/25,Cancelled,Order not delivered
+ORD-145281,30004280,10/02/25,Delivered,Refund not received
+ORD-559970,22355548,21/03/25,Returned,Return request
+ORD-624247,25375826,15/04/25,Delivered,Delayed delivery
+ORD-492843,30659813,26/02/25,Delivered,Order not delivered
+ORD-633756,31451951,11/02/25,Returned,Wrong item received
+ORD-470074,32315102,20/03/25,Delivered,Wrong item received
+ORD-726271,18320830,31/01/25,Pending,Wrong item received
+ORD-263254,30792672,24/01/25,Delivered,Delayed delivery
+ORD-377208,15465490,19/02/25,Shipped,Wrong item received
+ORD-165454,25483208,28/03/25,Returned,Wrong item received
+ORD-464472,25115520,10/03/25,Returned,Wrong item received
+ORD-829381,28933406,11/03/25,Returned,Delayed delivery
+ORD-162131,26277466,07/02/25,Returned,Wrong item received
+ORD-807365,29634446,21/03/25,Cancelled,Wrong item received
+ORD-804233,26994654,10/03/25,Delivered,Refund not received
+ORD-379100,31326569,31/01/25,Delivered,Order not delivered
+ORD-759268,30323148,06/03/25,Cancelled,Wrong item received
+ORD-845730,18192810,06/03/25,Returned,Wrong item received
+ORD-481924,31836960,20/03/25,Delivered,Refund not received
+ORD-629561,27974044,11/03/25,Pending,Order not delivered
+ORD-502533,27362792,01/02/25,Delivered,Wrong item received
+ORD-195660,24990448,22/03/25,Delivered,Order not delivered
+ORD-144334,20631100,07/03/25,Shipped,Wrong item received
+ORD-659850,16682526,27/03/25,Cancelled,Order not delivered
+ORD-252279,30389725,02/04/25,Returned,Delayed delivery
+ORD-788906,30967166,16/03/25,Pending,Order not delivered
+ORD-704021,32413463,22/03/25,Cancelled,Order not delivered
+ORD-283230,25843670,05/03/25,Cancelled,Refund not received
+ORD-824268,26358634,20/04/25,Shipped,Delayed delivery
+ORD-987207,29454970,02/02/25,Pending,Wrong item received
+ORD-189722,29920308,15/03/25,Pending,Wrong item received
+ORD-403858,27021032,03/04/25,Shipped,Return request
+ORD-607415,24203874,20/02/25,Returned,Order not delivered
+ORD-964957,29077294,16/03/25,Returned,Return request
+ORD-885935,24611056,02/03/25,Returned,Delayed delivery
+ORD-926692,9901805,06/03/25,Shipped,Wrong item received
+ORD-912228,25219106,01/03/25,Delivered,Refund not received
+ORD-501719,25849318,28/02/25,Shipped,Return request
+ORD-563791,21346516,11/04/25,Pending,Return request
+ORD-635194,11261278,10/03/25,Pending,Delayed delivery
+ORD-983532,23060494,13/04/25,Cancelled,Order not delivered
+ORD-986192,22807854,09/02/25,Pending,Order not delivered
+ORD-868288,30695193,12/04/25,Pending,Delayed delivery
+ORD-953523,29534134,07/04/25,Returned,Return request
+ORD-452380,4149449,31/01/25,Delivered,Order not delivered
+ORD-901577,29758162,25/02/25,Cancelled,Refund not received
+ORD-410139,33278666,20/03/25,Pending,Delayed delivery
+ORD-867355,29758166,19/03/25,Cancelled,Refund not received
+ORD-634124,11628392,25/02/25,Returned,Refund not received
+ORD-477495,32814113,15/03/25,Cancelled,Wrong item received
+ORD-200449,31793640,01/02/25,Shipped,Return request
+ORD-660192,30063263,02/02/25,Shipped,Return request
+ORD-403090,20446716,16/03/25,Delivered,Wrong item received
+ORD-453383,31538240,16/03/25,Pending,Delayed delivery
+ORD-942668,32928414,15/02/25,Delivered,Order not delivered
+ORD-726542,17461972,09/03/25,Returned,Delayed delivery
+ORD-883134,30018939,16/03/25,Cancelled,Return request
+ORD-820283,32234378,02/03/25,Shipped,Return request
+ORD-271246,32414723,01/02/25,Cancelled,Return request
+ORD-166631,31939464,14/02/25,Delivered,Order not delivered
+ORD-470891,22051228,21/02/25,Shipped,Refund not received
+ORD-166961,32026509,20/03/25,Shipped,Order not delivered
+ORD-892945,32085909,31/03/25,Pending,Return request
+ORD-733090,25641998,24/02/25,Shipped,Order not delivered
+ORD-628887,30461444,24/02/25,Shipped,Return request
+ORD-641273,2363526,31/03/25,Delivered,Order not delivered
+ORD-962785,29953264,13/02/25,Pending,Refund not received
+ORD-630016,24580476,03/02/25,Cancelled,Wrong item received
+ORD-581811,27288680,22/03/25,Cancelled,Refund not received
+ORD-772696,30256916,12/02/25,Cancelled,Wrong item received
+ORD-917780,26314912,16/04/25,Pending,Return request
+ORD-145517,31614919,25/02/25,Delivered,Return request
+ORD-682082,31866541,25/02/25,Delivered,Wrong item received
+ORD-425297,26207042,12/04/25,Returned,Wrong item received
+ORD-190582,25860756,06/04/25,Delivered,Return request
+ORD-906257,30779591,28/01/25,Pending,Refund not received
+ORD-863646,22492632,10/04/25,Shipped,Wrong item received
+ORD-660513,32662407,02/04/25,Pending,Refund not received
+ORD-576133,26882782,06/02/25,Shipped,Wrong item received
+ORD-805421,30140789,04/02/25,Returned,Order not delivered
+ORD-181125,30659620,26/02/25,Returned,Order not delivered
+ORD-322965,21797852,17/04/25,Delivered,Refund not received
+ORD-843276,15026870,31/01/25,Pending,Delayed delivery
+ORD-136126,19470570,25/01/25,Pending,Delayed delivery
+ORD-521942,12253666,15/03/25,Pending,Return request
+ORD-580127,27997278,22/03/25,Shipped,Order not delivered
+ORD-221958,33284894,19/03/25,Pending,Return request
+ORD-461197,32847392,30/03/25,Delivered,Wrong item received
+ORD-653263,31906801,25/02/25,Shipped,Refund not received
+ORD-278487,25244518,22/03/25,Cancelled,Delayed delivery
+ORD-858915,25725050,04/03/25,Delivered,Delayed delivery
+ORD-882393,24075754,28/02/25,Delivered,Delayed delivery
+ORD-702461,25375598,29/03/25,Cancelled,Return request
+ORD-339685,21258188,23/04/25,Returned,Return request
+ORD-932696,33250635,06/04/25,Pending,Wrong item received
+ORD-425000,32811664,09/04/25,Cancelled,Return request
+ORD-178262,32031681,22/02/25,Pending,Wrong item received
+ORD-298071,32297414,01/04/25,Delivered,Return request
+ORD-540939,32044243,24/01/25,Shipped,Wrong item received
+ORD-333203,17712942,08/04/25,Returned,Refund not received
+ORD-950917,29507570,29/03/25,Returned,Wrong item received
+ORD-900141,32031436,21/02/25,Returned,Return request
+ORD-545790,32300265,14/04/25,Delivered,Delayed delivery
+ORD-854449,31376666,06/04/25,Pending,Refund not received
+ORD-255181,22575578,06/02/25,Cancelled,Wrong item received
+ORD-678075,16117086,11/02/25,Returned,Refund not received
+ORD-840366,30564246,23/04/25,Delivered,Return request
+ORD-418552,26243724,04/04/25,Cancelled,Order not delivered
+ORD-427283,33175697,19/04/25,Pending,Return request
+ORD-268231,27456324,17/04/25,Pending,Refund not received
+ORD-323117,27362770,15/02/25,Cancelled,Order not delivered
+ORD-191855,27447748,01/04/25,Pending,Refund not received
+ORD-770923,30445067,29/01/25,Delivered,Order not delivered
+ORD-211510,31174717,05/04/25,Returned,Order not delivered
+ORD-132144,31411420,07/04/25,Pending,Order not delivered
+ORD-703917,23588776,21/04/25,Delivered,Order not delivered
+ORD-728609,22043978,11/02/25,Pending,Order not delivered
+ORD-137798,14780882,16/02/25,Returned,Refund not received
+ORD-513302,33266357,06/02/25,Cancelled,Wrong item received
+ORD-987475,26434478,21/04/25,Returned,Refund not received
+ORD-933782,30073458,08/03/25,Delivered,Return request
+ORD-584388,17289104,04/03/25,Shipped,Refund not received
+ORD-123615,29126538,16/02/25,Returned,Return request
+ORD-999928,31794077,25/02/25,Returned,Order not delivered
+ORD-854007,24319178,20/04/25,Delivered,Wrong item received
+ORD-798259,33043660,19/02/25,Delivered,Refund not received
+ORD-564079,25808474,19/04/25,Delivered,Refund not received
+ORD-386366,26867036,29/03/25,Delivered,Delayed delivery
+ORD-880166,27680784,17/04/25,Returned,Wrong item received
+ORD-589281,30154528,03/04/25,Cancelled,Return request
+ORD-723918,31770426,05/03/25,Shipped,Delayed delivery
+ORD-429483,32339992,19/03/25,Delivered,Delayed delivery
+ORD-164122,27422202,04/03/25,Delivered,Delayed delivery
+ORD-489649,33255498,10/02/25,Delivered,Delayed delivery
+ORD-814803,26272774,04/04/25,Delivered,Order not delivered
+ORD-502634,26536540,11/02/25,Delivered,Delayed delivery
+ORD-517499,27989800,26/02/25,Delivered,Refund not received
+ORD-851233,30129286,14/04/25,Pending,Return request
+ORD-353409,29658578,26/03/25,Returned,Return request
+ORD-914303,30364196,28/03/25,Pending,Order not delivered
+ORD-566964,30678175,09/04/25,Shipped,Refund not received
+ORD-236293,31363060,27/02/25,Delivered,Wrong item received
+ORD-598288,24664550,09/03/25,Pending,Refund not received
+ORD-740186,29044860,23/04/25,Returned,Delayed delivery
+ORD-145661,25808464,08/02/25,Cancelled,Refund not received
+ORD-423974,18377272,20/02/25,Returned,Delayed delivery
+ORD-109696,33378478,04/04/25,Returned,Wrong item received
+ORD-861832,28944968,07/02/25,Delivered,Order not delivered
+ORD-525554,31598737,03/02/25,Shipped,Wrong item received
+ORD-715949,19552748,07/03/25,Returned,Delayed delivery
+ORD-626308,20312066,08/04/25,Delivered,Order not delivered
+ORD-600426,31112583,12/04/25,Cancelled,Wrong item received
+ORD-781704,33209656,17/02/25,Returned,Wrong item received
+ORD-112749,23413758,12/03/25,Cancelled,Delayed delivery
+ORD-533642,31609844,21/04/25,Shipped,Refund not received
+ORD-658468,24086520,08/02/25,Pending,Delayed delivery
+ORD-592029,30788616,04/02/25,Shipped,Refund not received
+ORD-930290,31123385,09/04/25,Returned,Return request
+ORD-720660,22911736,12/03/25,Shipped,Return request
+ORD-488890,16127468,28/03/25,Shipped,Refund not received
+ORD-717880,26882782,19/03/25,Pending,Delayed delivery
+ORD-796916,18108050,08/03/25,Shipped,Return request
+ORD-326068,31939457,09/02/25,Shipped,Order not delivered
+ORD-929518,31744583,18/04/25,Pending,Refund not received
+ORD-550090,24338340,04/02/25,Shipped,Order not delivered
+ORD-441178,28282824,15/03/25,Shipped,Wrong item received
+ORD-884356,23788116,15/02/25,Returned,Refund not received
+ORD-799968,32418276,28/02/25,Pending,Delayed delivery
+ORD-698847,32915264,28/01/25,Delivered,Delayed delivery
+ORD-207090,20446716,13/04/25,Cancelled,Wrong item received
+ORD-982592,29330972,17/03/25,Shipped,Refund not received
+ORD-321322,33060141,04/04/25,Cancelled,Delayed delivery
+ORD-269264,30591344,17/02/25,Delivered,Wrong item received
+ORD-912355,31999025,19/03/25,Pending,Return request
+ORD-675173,21882748,16/03/25,Delivered,Wrong item received
+ORD-139363,31888550,21/04/25,Delivered,Wrong item received
+ORD-586975,33545834,26/03/25,Returned,Return request
+ORD-109318,27375454,27/01/25,Delivered,Order not delivered
+ORD-269231,31496298,28/02/25,Shipped,Refund not received
+ORD-139429,26331940,02/04/25,Pending,Order not delivered
+ORD-795015,33223709,12/03/25,Pending,Order not delivered
+ORD-968741,30550789,18/02/25,Delivered,Return request
+ORD-122636,20223522,19/03/25,Cancelled,Delayed delivery
+ORD-626295,29854731,13/03/25,Shipped,Delayed delivery
+ORD-963795,23877022,12/03/25,Returned,Delayed delivery
+ORD-751963,29277450,02/02/25,Shipped,Refund not received
+ORD-963842,2290975,09/03/25,Delivered,Wrong item received
+ORD-913288,30870822,08/02/25,Delivered,Delayed delivery
+ORD-239895,2519788,14/02/25,Pending,Order not delivered
+ORD-557970,29902121,02/02/25,Delivered,Wrong item received
+ORD-143560,24614842,22/03/25,Delivered,Order not delivered
+ORD-427206,31319920,06/03/25,Returned,Order not delivered
+ORD-926911,30919833,26/03/25,Shipped,Wrong item received
+ORD-487234,22076780,17/03/25,Shipped,Order not delivered
+ORD-465168,32723852,09/04/25,Shipped,Return request
+ORD-466039,28282918,12/03/25,Cancelled,Refund not received
+ORD-312330,31451390,09/03/25,Shipped,Delayed delivery
+ORD-805489,33185489,04/04/25,Returned,Delayed delivery
+ORD-478170,29439686,24/04/25,Delivered,Order not delivered
+ORD-660557,21934214,16/02/25,Returned,Delayed delivery
+ORD-361905,30917007,21/03/25,Returned,Wrong item received
+ORD-644617,32655432,24/01/25,Pending,Delayed delivery
+ORD-510524,24580476,25/02/25,Cancelled,Wrong item received
+ORD-152229,12454386,08/04/25,Cancelled,Return request
+ORD-663186,27574938,22/02/25,Shipped,Order not delivered
+ORD-296623,27873894,09/02/25,Pending,Wrong item received
+ORD-725491,29438604,29/01/25,Pending,Order not delivered
+ORD-466440,24693414,19/02/25,Shipped,Order not delivered
+ORD-363668,32406937,18/03/25,Cancelled,Delayed delivery
+ORD-999896,26536514,25/03/25,Returned,Delayed delivery
+ORD-515079,33169400,04/03/25,Cancelled,Wrong item received
+ORD-361637,16620236,16/03/25,Delivered,Order not delivered
+ORD-856094,27849830,26/02/25,Returned,Refund not received
+ORD-160481,31637122,08/04/25,Pending,Order not delivered
+ORD-286477,30137395,14/04/25,Shipped,Refund not received
+ORD-750607,24426570,12/04/25,Shipped,Return request
+ORD-203569,29782686,12/02/25,Pending,Refund not received
+ORD-454784,24977460,11/03/25,Cancelled,Return request
+ORD-476958,30699721,12/02/25,Delivered,Refund not received
+ORD-587193,32800112,27/02/25,Returned,Wrong item received
+ORD-892643,25239512,04/04/25,Delivered,Refund not received
+ORD-174000,30398385,23/03/25,Delivered,Return request
+ORD-557048,19284164,12/03/25,Delivered,Order not delivered
+ORD-120451,32880565,01/03/25,Shipped,Return request
+ORD-579114,31873071,15/03/25,Delivered,Delayed delivery
+ORD-648429,31072991,27/01/25,Pending,Return request
+ORD-925054,29312880,27/01/25,Pending,Delayed delivery
+ORD-606629,32686744,03/02/25,Cancelled,Return request
+ORD-865202,32043718,20/04/25,Delivered,Delayed delivery
+ORD-826154,31871471,16/03/25,Delivered,Order not delivered
+ORD-985144,13315148,08/04/25,Cancelled,Delayed delivery
+ORD-833976,31411709,30/03/25,Delivered,Order not delivered
+ORD-843068,15425032,19/03/25,Cancelled,Wrong item received
+ORD-870685,29949844,24/04/25,Delivered,Wrong item received
+ORD-918612,32421368,18/04/25,Shipped,Return request
+ORD-417584,32490529,28/01/25,Shipped,Refund not received
+ORD-258918,31101720,08/02/25,Shipped,Order not delivered
+ORD-948135,23904198,29/03/25,Cancelled,Wrong item received
+ORD-179264,32458755,17/04/25,Pending,Order not delivered
+ORD-437128,25460420,08/03/25,Cancelled,Wrong item received
+ORD-401730,33005699,21/02/25,Returned,Return request
+ORD-435322,27401512,03/04/25,Returned,Return request
+ORD-390240,24527830,08/03/25,Cancelled,Delayed delivery
+ORD-735649,31113880,26/01/25,Pending,Delayed delivery
+ORD-643155,29280060,09/02/25,Pending,Order not delivered
+ORD-409487,32032657,14/03/25,Shipped,Refund not received
+ORD-818524,31184732,23/02/25,Shipped,Refund not received
+ORD-792793,25002652,31/01/25,Pending,Order not delivered
+ORD-239967,30889087,16/04/25,Shipped,Order not delivered
+ORD-104288,18849934,02/04/25,Pending,Refund not received
+ORD-198428,26190314,10/02/25,Cancelled,Delayed delivery
+ORD-647088,23413760,23/03/25,Returned,Wrong item received
+ORD-942640,31013583,24/03/25,Pending,Order not delivered
+ORD-299855,24098434,04/02/25,Delivered,Delayed delivery
+ORD-154916,8353181,12/02/25,Returned,Return request
+ORD-706033,27061162,15/02/25,Delivered,Delayed delivery
+ORD-391987,32023776,11/04/25,Delivered,Delayed delivery
+ORD-418325,30992987,25/02/25,Shipped,Refund not received
+ORD-352746,21188264,18/04/25,Shipped,Refund not received
+ORD-987276,25841290,11/03/25,Shipped,Return request
+ORD-144112,26428054,14/02/25,Shipped,Order not delivered
+ORD-898451,32664421,24/01/25,Pending,Order not delivered
+ORD-375183,27542874,16/03/25,Delivered,Delayed delivery
+ORD-772092,11053810,26/03/25,Delivered,Delayed delivery
+ORD-740554,20151588,31/03/25,Cancelled,Return request
+ORD-592448,30036777,03/03/25,Pending,Order not delivered
+ORD-152833,31742176,28/01/25,Pending,Return request
+ORD-666606,32635723,26/01/25,Pending,Wrong item received
+ORD-241564,29961765,12/03/25,Shipped,Wrong item received
+ORD-496491,28238184,07/02/25,Delivered,Refund not received
+ORD-674807,25332180,03/04/25,Returned,Refund not received
+ORD-137806,32024143,25/03/25,Pending,Delayed delivery
+ORD-814634,33519116,16/04/25,Pending,Return request
+ORD-411254,31336509,03/02/25,Pending,Order not delivered
+ORD-777282,29882864,18/02/25,Returned,Refund not received
+ORD-630856,26565562,21/03/25,Returned,Delayed delivery
+ORD-886360,32249719,25/01/25,Shipped,Order not delivered
+ORD-232894,23715182,04/03/25,Cancelled,Wrong item received
+ORD-947611,24230598,16/04/25,Returned,Delayed delivery
+ORD-430684,27251026,19/04/25,Delivered,Delayed delivery
+ORD-190610,25808474,25/02/25,Returned,Wrong item received
+ORD-904090,22043976,25/03/25,Pending,Refund not received
+ORD-776083,30435249,14/04/25,Shipped,Wrong item received
+ORD-403217,32506561,11/04/25,Shipped,Delayed delivery
+ORD-740009,33526454,18/02/25,Shipped,Order not delivered
+ORD-378015,24169900,05/04/25,Delivered,Refund not received
+ORD-455714,29808898,28/03/25,Shipped,Wrong item received
+ORD-889705,28900624,29/01/25,Delivered,Refund not received
+ORD-908812,30894234,09/03/25,Delivered,Wrong item received
+ORD-491764,23313418,01/03/25,Shipped,Return request
+ORD-231951,31845275,05/03/25,Returned,Order not delivered
+ORD-161705,26044446,19/03/25,Shipped,Order not delivered
+ORD-420172,32454160,05/02/25,Pending,Return request
+ORD-576639,32031697,07/02/25,Pending,Delayed delivery
+ORD-786886,31614489,11/03/25,Delivered,Delayed delivery
+ORD-182536,31819244,09/04/25,Cancelled,Return request
+ORD-983146,25092836,14/03/25,Shipped,Return request
+ORD-633038,32800078,06/02/25,Pending,Refund not received
+ORD-877002,32628691,06/02/25,Cancelled,Wrong item received
+ORD-425996,32355651,03/04/25,Shipped,Delayed delivery
+ORD-153195,30409173,11/04/25,Shipped,Refund not received
+ORD-682590,26616546,29/03/25,Pending,Delayed delivery
+ORD-159444,31239244,01/02/25,Delivered,Delayed delivery
+ORD-318602,24329394,13/02/25,Pending,Delayed delivery
+ORD-536147,32215022,11/04/25,Cancelled,Refund not received
+ORD-878537,31993889,09/03/25,Shipped,Order not delivered
+ORD-447305,18654894,27/01/25,Cancelled,Wrong item received
+ORD-161958,33209650,05/04/25,Pending,Order not delivered
+ORD-971701,16354148,27/02/25,Shipped,Wrong item received
+ORD-193912,27138924,26/02/25,Returned,Wrong item received
+ORD-732159,30440083,14/03/25,Pending,Return request
+ORD-465988,32675927,26/01/25,Delivered,Delayed delivery
+ORD-998553,28647810,11/04/25,Shipped,Order not delivered
+ORD-958138,16483798,10/04/25,Delivered,Delayed delivery
+ORD-911628,32382212,31/03/25,Pending,Refund not received
+ORD-525697,31770426,01/03/25,Returned,Order not delivered
+ORD-441164,30232624,26/03/25,Returned,Refund not received
+ORD-980566,33243424,14/02/25,Delivered,Wrong item received
+ORD-851065,33175697,05/04/25,Cancelled,Wrong item received
+ORD-972359,30089303,27/01/25,Cancelled,Return request
+ORD-430054,29412228,12/04/25,Pending,Refund not received
+ORD-281557,30825406,13/04/25,Returned,Wrong item received
+ORD-281102,32325518,25/01/25,Shipped,Refund not received
+ORD-369155,30708381,02/03/25,Pending,Delayed delivery
+ORD-948410,32355606,07/04/25,Delivered,Refund not received
+ORD-146686,31722557,02/02/25,Cancelled,Wrong item received
+ORD-906978,11677126,28/03/25,Cancelled,Return request
+ORD-646840,30649909,01/02/25,Cancelled,Return request
+ORD-725918,29999643,30/03/25,Shipped,Refund not received
+ORD-776453,30646195,12/02/25,Returned,Refund not received
+ORD-934472,11541646,02/04/25,Returned,Order not delivered
+ORD-580031,33040943,01/04/25,Returned,Delayed delivery
+ORD-914383,28164812,24/01/25,Shipped,Order not delivered
+ORD-936035,33309404,18/03/25,Shipped,Wrong item received
+ORD-465969,25550624,21/04/25,Returned,Delayed delivery
+ORD-872614,23978108,03/04/25,Returned,Delayed delivery
+ORD-418177,20716590,13/04/25,Delivered,Return request
+ORD-348748,31939478,24/01/25,Returned,Delayed delivery
+ORD-420740,33330272,31/01/25,Pending,Order not delivered
+ORD-137622,32241422,14/02/25,Pending,Return request
+ORD-914129,31670780,06/04/25,Shipped,Refund not received
+ORD-306914,30007346,18/02/25,Delivered,Wrong item received
+ORD-238157,29277700,18/03/25,Cancelled,Delayed delivery
+ORD-818348,31069625,08/04/25,Shipped,Return request
+ORD-297057,30766030,20/02/25,Cancelled,Delayed delivery
+ORD-616963,23877022,15/03/25,Delivered,Return request
+ORD-724612,21959124,07/03/25,Cancelled,Wrong item received
+ORD-471479,26959548,02/03/25,Pending,Delayed delivery
+ORD-862065,33332642,04/03/25,Delivered,Order not delivered
+ORD-130707,2028080,09/02/25,Returned,Refund not received
+ORD-702517,31436224,06/03/25,Returned,Delayed delivery
+ORD-184098,30250103,18/04/25,Delivered,Wrong item received
+ORD-379739,33336680,03/04/25,Returned,Delayed delivery
+ORD-205234,26328040,06/03/25,Cancelled,Order not delivered
+ORD-877884,32800078,13/04/25,Pending,Refund not received
+ORD-378900,31829161,20/03/25,Shipped,Order not delivered
+ORD-252433,29438604,18/03/25,Pending,Wrong item received
+ORD-314791,24331258,17/02/25,Shipped,Return request
+ORD-668012,30413818,31/01/25,Cancelled,Refund not received
+ORD-738201,31584220,26/03/25,Pending,Delayed delivery
+ORD-611239,28078014,05/02/25,Delivered,Return request
+ORD-291436,32756182,06/04/25,Delivered,Refund not received
+ORD-246013,33413874,24/01/25,Delivered,Delayed delivery
+ORD-918999,23844814,01/03/25,Returned,Delayed delivery
+ORD-721754,30475803,26/02/25,Cancelled,Delayed delivery
+ORD-936736,31359273,01/04/25,Pending,Wrong item received
+ORD-133212,28768836,21/02/25,Delivered,Refund not received
+ORD-824839,32867201,23/04/25,Delivered,Return request
+ORD-799977,28119818,12/02/25,Pending,Refund not received
+ORD-807018,30419921,07/03/25,Delivered,Delayed delivery
+ORD-729234,28341262,15/04/25,Pending,Return request
+ORD-904465,30094468,01/03/25,Delivered,Delayed delivery
+ORD-165752,32325488,17/03/25,Pending,Refund not received
+ORD-775604,28171168,31/03/25,Pending,Order not delivered
+ORD-307414,23129838,03/03/25,Returned,Order not delivered
+ORD-133788,30421705,06/03/25,Cancelled,Delayed delivery
+ORD-523231,28933396,28/02/25,Shipped,Delayed delivery
+ORD-331043,21076002,18/03/25,Shipped,Delayed delivery
+ORD-226857,32991536,11/04/25,Shipped,Refund not received
+ORD-210248,24061884,04/04/25,Pending,Refund not received
+ORD-446627,24139112,22/02/25,Delivered,Order not delivered
+ORD-931568,30495328,18/04/25,Returned,Wrong item received
+ORD-614062,21632064,03/02/25,Returned,Return request
+ORD-367801,32113791,14/03/25,Delivered,Return request
+ORD-550039,31428649,17/02/25,Returned,Order not delivered
+ORD-146005,32142456,21/04/25,Shipped,Delayed delivery
+ORD-722835,11958118,11/03/25,Returned,Wrong item received
+ORD-868395,22744656,03/04/25,Delivered,Return request
+ORD-709243,28553196,13/03/25,Returned,Order not delivered
+ORD-807121,30145721,10/03/25,Delivered,Delayed delivery
+ORD-895532,24726578,01/04/25,Shipped,Order not delivered
+ORD-233453,30529551,22/03/25,Delivered,Delayed delivery
+ORD-455794,30495214,01/03/25,Returned,Refund not received
+ORD-586891,27989764,18/02/25,Shipped,Delayed delivery
+ORD-318260,22786674,14/02/25,Shipped,Return request
+ORD-441279,29335870,08/03/25,Pending,Return request
+ORD-508091,31352953,06/04/25,Shipped,Return request
+ORD-588277,29906076,27/03/25,Delivered,Refund not received
+ORD-408728,24502962,20/03/25,Shipped,Refund not received
+ORD-589257,32704699,19/02/25,Shipped,Wrong item received
+ORD-454211,32085910,07/02/25,Delivered,Delayed delivery
+ORD-514256,31946029,20/04/25,Pending,Wrong item received
+ORD-694975,28138120,15/03/25,Returned,Refund not received
+ORD-441204,24789850,05/03/25,Pending,Return request
+ORD-647972,24749794,31/03/25,Delivered,Refund not received
+ORD-187850,27645258,15/04/25,Returned,Delayed delivery
+ORD-643869,31426825,16/03/25,Shipped,Delayed delivery
+ORD-889726,11896042,06/02/25,Delivered,Refund not received
+ORD-530133,13765334,02/03/25,Returned,Return request
+ORD-496363,32093862,16/03/25,Shipped,Return request
+ORD-334877,31363076,28/03/25,Cancelled,Order not delivered
+ORD-586992,24899550,29/01/25,Delivered,Delayed delivery
+ORD-479405,24124722,11/04/25,Pending,Refund not received
+ORD-909484,32756719,08/04/25,Pending,Delayed delivery
+ORD-461384,21670056,04/03/25,Pending,Delayed delivery
+ORD-347444,33116164,18/03/25,Shipped,Return request
+ORD-533338,25002652,06/02/25,Pending,Wrong item received
+ORD-163676,32421415,19/02/25,Delivered,Refund not received
+ORD-523814,21128594,24/01/25,Returned,Order not delivered
+ORD-976655,28532460,05/02/25,Delivered,Wrong item received
+ORD-823436,25770034,27/03/25,Returned,Order not delivered
+ORD-348568,14112786,28/03/25,Delivered,Refund not received
+ORD-100423,26206262,19/03/25,Returned,Wrong item received
+ORD-944405,15615862,25/01/25,Returned,Wrong item received
+ORD-824410,31112523,24/01/25,Delivered,Delayed delivery
+ORD-697636,24041070,04/02/25,Shipped,Delayed delivery
+ORD-829237,27069562,01/03/25,Pending,Delayed delivery
+ORD-520160,24310244,07/02/25,Returned,Return request
+ORD-676859,30437716,24/01/25,Pending,Delayed delivery
+ORD-488234,21639366,26/02/25,Delivered,Refund not received
+ORD-440739,29277034,14/03/25,Pending,Return request
+ORD-446286,17238968,16/04/25,Shipped,Order not delivered
+ORD-726464,30495328,16/04/25,Cancelled,Return request
+ORD-730344,30420432,05/04/25,Cancelled,Order not delivered
+ORD-562055,24462038,20/04/25,Pending,Return request
+ORD-548070,33276687,01/02/25,Delivered,Order not delivered
+ORD-910352,29203540,04/04/25,Cancelled,Wrong item received
+ORD-642978,26697820,29/03/25,Delivered,Delayed delivery
+ORD-917294,31990606,16/04/25,Delivered,Refund not received
+ORD-801317,17612628,06/03/25,Pending,Delayed delivery
+ORD-561258,31012257,04/02/25,Cancelled,Delayed delivery
+ORD-944118,25029096,11/04/25,Returned,Return request
+ORD-278918,33073406,10/02/25,Returned,Delayed delivery
+ORD-339142,31926556,04/04/25,Shipped,Wrong item received
+ORD-670317,33571365,19/04/25,Returned,Order not delivered
+ORD-849850,24412564,28/02/25,Shipped,Refund not received
+ORD-772140,27029124,28/03/25,Returned,Return request
+ORD-139972,25301612,15/03/25,Delivered,Delayed delivery
+ORD-939593,27215114,05/04/25,Delivered,Delayed delivery
+ORD-417578,33035294,04/03/25,Returned,Delayed delivery
+ORD-860840,26816352,21/03/25,Cancelled,Refund not received
+ORD-351001,21150334,16/02/25,Delivered,Return request
+ORD-693970,21565854,12/03/25,Delivered,Order not delivered
+ORD-142487,31667616,15/02/25,Delivered,Wrong item received
+ORD-992129,25002648,23/03/25,Cancelled,Return request
+ORD-607781,29910103,28/02/25,Shipped,Refund not received
+ORD-719332,32513927,25/03/25,Shipped,Wrong item received
+ORD-566803,30175171,27/03/25,Cancelled,Order not delivered
+ORD-355876,25462822,10/04/25,Shipped,Order not delivered
+ORD-714957,32571698,28/02/25,Shipped,Order not delivered
+ORD-281024,26678892,17/03/25,Shipped,Wrong item received
+ORD-498383,31434223,23/03/25,Shipped,Wrong item received
+ORD-379349,33426566,30/01/25,Cancelled,Delayed delivery
+ORD-570094,31196595,18/03/25,Cancelled,Return request
+ORD-927245,28348136,24/02/25,Cancelled,Return request
+ORD-719238,26883904,17/04/25,Delivered,Refund not received
+ORD-474707,25669488,16/02/25,Delivered,Wrong item received
+ORD-315844,29970909,23/02/25,Shipped,Order not delivered
+ORD-499998,30575862,22/03/25,Cancelled,Order not delivered
+ORD-790556,25419924,07/02/25,Cancelled,Return request
+ORD-492340,33034750,01/04/25,Returned,Refund not received
+ORD-858812,32137914,06/02/25,Pending,Delayed delivery
+ORD-853273,21498970,07/03/25,Shipped,Refund not received
+ORD-357661,32451361,20/02/25,Shipped,Return request
+ORD-405151,33127959,22/02/25,Pending,Order not delivered
+ORD-141743,30246784,22/03/25,Cancelled,Refund not received
+ORD-177482,33365899,10/04/25,Cancelled,Delayed delivery
+ORD-995369,30872919,22/04/25,Pending,Delayed delivery
+ORD-858766,9918289,07/03/25,Pending,Refund not received
+ORD-241586,26434478,12/04/25,Pending,Refund not received
+ORD-905841,27352140,19/03/25,Pending,Refund not received
+ORD-841220,21106188,16/04/25,Returned,Return request
+ORD-783148,31596596,29/01/25,Pending,Refund not received
+ORD-885372,26264118,27/02/25,Delivered,Order not delivered
+ORD-367455,30010586,27/03/25,Shipped,Refund not received
+ORD-921283,30144141,04/02/25,Returned,Refund not received
+ORD-546105,26076932,12/03/25,Delivered,Return request
+ORD-944469,25898458,22/04/25,Returned,Order not delivered
+ORD-217703,26332438,06/04/25,Returned,Return request
+ORD-620428,21250518,14/03/25,Returned,Delayed delivery
+ORD-237428,26959556,16/03/25,Cancelled,Order not delivered
+ORD-350656,20694216,13/02/25,Delivered,Order not delivered
+ORD-593705,20680528,31/01/25,Delivered,Return request
+ORD-696340,31101852,25/02/25,Delivered,Return request
+ORD-119900,26775484,03/03/25,Returned,Wrong item received
+ORD-818396,30874677,05/02/25,Delivered,Delayed delivery
+ORD-394337,12120676,27/03/25,Shipped,Delayed delivery
+ORD-668904,31825451,21/04/25,Shipped,Order not delivered
+ORD-375112,26253946,31/03/25,Delivered,Return request
+ORD-403972,29371384,17/03/25,Pending,Wrong item received
+ORD-525438,30893483,07/03/25,Delivered,Delayed delivery
+ORD-760277,30916899,05/02/25,Cancelled,Refund not received
+ORD-943283,32700148,04/02/25,Pending,Refund not received
+ORD-700062,26206264,24/02/25,Delivered,Wrong item received
+ORD-480460,20557978,02/03/25,Shipped,Order not delivered
+ORD-636802,19136468,01/02/25,Delivered,Delayed delivery
+ORD-485229,2490935,09/04/25,Cancelled,Refund not received
+ORD-323182,30755698,16/04/25,Shipped,Order not delivered
+ORD-535539,24518290,15/04/25,Shipped,Delayed delivery
+ORD-736980,24215448,18/04/25,Delivered,Refund not received
+ORD-984345,29674230,11/04/25,Pending,Wrong item received
+ORD-694722,25203980,04/03/25,Cancelled,Delayed delivery
+ORD-670639,29884037,15/03/25,Shipped,Refund not received
+ORD-907698,30622369,01/04/25,Delivered,Return request
+ORD-866994,21128640,16/02/25,Pending,Wrong item received
+ORD-911840,28768848,14/04/25,Cancelled,Return request
+ORD-596110,25451108,10/02/25,Pending,Return request
+ORD-532875,33039345,15/04/25,Returned,Order not delivered
+ORD-692630,17650066,18/03/25,Pending,Refund not received
+ORD-604433,32550257,28/02/25,Cancelled,Delayed delivery
+ORD-561965,30860730,16/02/25,Pending,Refund not received
+ORD-754325,28692900,31/03/25,Delivered,Delayed delivery
+ORD-511148,24031396,13/02/25,Shipped,Refund not received
+ORD-406052,28959692,27/02/25,Shipped,Order not delivered
+ORD-787583,23370004,27/03/25,Delivered,Wrong item received
+ORD-422920,28951088,28/01/25,Shipped,Order not delivered
+ORD-516935,32662407,17/04/25,Cancelled,Refund not received
+ORD-983785,30047065,14/03/25,Pending,Order not delivered
+ORD-633519,31352953,23/02/25,Shipped,Delayed delivery
+ORD-805001,30758674,14/02/25,Shipped,Delayed delivery
+ORD-768347,30101320,02/02/25,Pending,Wrong item received
+ORD-290819,29503494,10/02/25,Returned,Wrong item received
+ORD-558276,31608261,11/03/25,Pending,Return request
+ORD-336008,29421850,17/03/25,Returned,Order not delivered
+ORD-263898,29844580,13/04/25,Returned,Refund not received
+ORD-756013,21641522,19/02/25,Shipped,Wrong item received
+ORD-332699,26332636,08/03/25,Cancelled,Delayed delivery
+ORD-117985,1678869,24/02/25,Cancelled,Wrong item received
+ORD-750745,26277466,09/02/25,Pending,Order not delivered
+ORD-848720,28138120,29/03/25,Delivered,Delayed delivery
+ORD-431075,22994186,07/02/25,Cancelled,Wrong item received
+ORD-512591,30143542,01/04/25,Shipped,Wrong item received
+ORD-497025,30659811,27/03/25,Shipped,Return request
+ORD-974177,26680322,11/04/25,Pending,Order not delivered
+ORD-251514,32084868,06/03/25,Cancelled,Return request
+ORD-979099,27729380,01/02/25,Pending,Wrong item received
+ORD-856715,25003304,11/04/25,Pending,Delayed delivery
+ORD-342722,23504336,02/02/25,Cancelled,Delayed delivery
+ORD-172037,21616500,16/03/25,Returned,Refund not received
+ORD-150066,26571018,17/03/25,Delivered,Delayed delivery
+ORD-736905,29300232,06/02/25,Pending,Return request
+ORD-628860,30010493,04/03/25,Delivered,Delayed delivery
+ORD-891785,30009450,19/03/25,Shipped,Return request
+ORD-531436,29924523,15/04/25,Shipped,Order not delivered
+ORD-766915,26284120,05/03/25,Shipped,Delayed delivery
+ORD-501043,33101371,15/04/25,Returned,Return request
+ORD-406150,31124037,01/02/25,Cancelled,Wrong item received
+ORD-282421,33315855,03/02/25,Cancelled,Return request
+ORD-399757,19284164,04/03/25,Delivered,Order not delivered
+ORD-202840,32156200,25/02/25,Pending,Return request
+ORD-699808,30063123,30/03/25,Shipped,Return request
+ORD-434233,26894038,16/03/25,Shipped,Refund not received
+ORD-484690,23348606,16/02/25,Returned,Order not delivered
+ORD-365933,30084786,20/02/25,Delivered,Order not delivered
+ORD-350924,24412564,04/02/25,Shipped,Wrong item received
+ORD-996586,33169400,13/02/25,Delivered,Return request
+ORD-672199,30269733,24/02/25,Pending,Refund not received
+ORD-762625,27021466,06/04/25,Pending,Wrong item received
+ORD-270931,31015691,10/02/25,Delivered,Delayed delivery
+ORD-985086,31112875,19/02/25,Shipped,Wrong item received
+ORD-127856,28940082,06/04/25,Shipped,Refund not received
+ORD-303032,29896839,24/03/25,Returned,Wrong item received
+ORD-594038,31015042,09/03/25,Delivered,Refund not received
+ORD-650169,26389024,22/02/25,Pending,Return request
+ORD-434897,12041056,15/04/25,Shipped,Return request
+ORD-383207,29212470,27/03/25,Cancelled,Refund not received
+ORD-165073,23489580,26/02/25,Shipped,Delayed delivery
+ORD-123280,30245640,23/03/25,Delivered,Refund not received
+ORD-659293,12277574,19/03/25,Pending,Order not delivered
+ORD-239808,31239130,06/02/25,Delivered,Return request
+ORD-725962,32321431,21/02/25,Cancelled,Refund not received
+ORD-147993,29194740,23/04/25,Delivered,Delayed delivery
+ORD-256682,22987264,10/03/25,Pending,Return request
+ORD-423866,23673856,06/02/25,Shipped,Delayed delivery
+ORD-637897,25228876,05/04/25,Pending,Wrong item received
+ORD-580781,30692607,09/03/25,Returned,Refund not received
+ORD-842800,31174960,12/02/25,Cancelled,Order not delivered
+ORD-753797,28037592,07/03/25,Delivered,Wrong item received
+ORD-352641,27357044,03/03/25,Shipped,Return request
+ORD-637892,31957373,09/02/25,Cancelled,Wrong item received
+ORD-944376,27993624,02/02/25,Returned,Wrong item received
+ORD-860213,27394820,27/03/25,Pending,Wrong item received
+ORD-380358,11401904,25/01/25,Cancelled,Refund not received
+ORD-706096,32623877,28/02/25,Shipped,Order not delivered
+ORD-209449,21416040,15/04/25,Delivered,Delayed delivery
+ORD-473727,30874677,06/03/25,Returned,Refund not received
+ORD-166674,32490536,25/03/25,Delivered,Return request
+ORD-112993,27527046,09/03/25,Cancelled,Return request
+ORD-440427,31425878,28/01/25,Pending,Refund not received
+ORD-624837,31496598,02/04/25,Cancelled,Delayed delivery
+ORD-518382,28119828,15/03/25,Pending,Wrong item received
+ORD-783308,25365104,15/03/25,Shipped,Order not delivered
+ORD-478108,23800960,28/02/25,Shipped,Delayed delivery
+ORD-866808,28119828,20/03/25,Cancelled,Wrong item received
+ORD-420494,27210208,09/02/25,Returned,Return request
+ORD-177517,27435414,17/03/25,Shipped,Refund not received
+ORD-920755,24919920,11/04/25,Shipped,Return request
+ORD-443081,14336932,05/04/25,Pending,Refund not received
+ORD-105929,25391524,22/03/25,Cancelled,Wrong item received
+ORD-794351,30744809,20/02/25,Returned,Return request
+ORD-325646,26332332,16/02/25,Pending,Wrong item received
+ORD-309393,31411259,15/03/25,Pending,Wrong item received
+ORD-347244,14641188,23/02/25,Shipped,Order not delivered
+ORD-640700,32457204,24/02/25,Returned,Delayed delivery
+ORD-645615,25483164,25/01/25,Delivered,Refund not received
+ORD-650633,28612560,01/02/25,Shipped,Refund not received
+ORD-775248,31359281,03/04/25,Delivered,Refund not received
+ORD-843623,30909115,06/02/25,Delivered,Wrong item received
+ORD-966958,28020166,19/04/25,Cancelled,Return request
+ORD-579592,18066306,11/03/25,Delivered,Return request
+ORD-189875,23800868,04/04/25,Cancelled,Order not delivered
+ORD-633477,30440108,09/04/25,Shipped,Return request
+ORD-528327,33250635,16/03/25,Cancelled,Refund not received
+ORD-828968,33167391,08/03/25,Shipped,Order not delivered
+ORD-347189,33370644,24/04/25,Cancelled,Return request
+ORD-577177,31436224,15/04/25,Shipped,Return request
+ORD-378209,31184762,14/04/25,Delivered,Order not delivered
+ORD-192984,31641920,07/04/25,Shipped,Delayed delivery
+ORD-177482,31026144,16/02/25,Delivered,Delayed delivery
+ORD-638533,30195728,05/02/25,Pending,Delayed delivery
+ORD-645925,32247210,16/03/25,Shipped,Order not delivered
+ORD-251670,31386981,18/03/25,Pending,Order not delivered
+ORD-734451,32242156,26/01/25,Shipped,Wrong item received
+ORD-225296,19460432,27/02/25,Cancelled,Refund not received
+ORD-716701,13601660,24/04/25,Shipped,Wrong item received
+ORD-627069,27241356,12/04/25,Cancelled,Order not delivered
+ORD-542410,10956746,25/03/25,Pending,Refund not received
+ORD-605006,30646627,02/04/25,Returned,Wrong item received
+ORD-543084,12724572,02/04/25,Returned,Return request
+ORD-211024,31875061,10/02/25,Pending,Delayed delivery
+ORD-629458,25731738,08/03/25,Pending,Order not delivered
+ORD-658796,7744523,21/02/25,Delivered,Delayed delivery
+ORD-600092,20616372,28/01/25,Returned,Delayed delivery
+ORD-677076,32045387,26/02/25,Pending,Wrong item received
+ORD-663541,26917748,19/02/25,Delivered,Order not delivered
+ORD-144124,25631676,09/03/25,Cancelled,Delayed delivery
+ORD-717017,26696514,20/03/25,Cancelled,Refund not received
+ORD-394933,30560448,24/03/25,Cancelled,Wrong item received
+ORD-269114,31565363,06/02/25,Shipped,Delayed delivery
+ORD-439137,31355825,07/03/25,Cancelled,Order not delivered
+ORD-509037,31722773,26/01/25,Cancelled,Delayed delivery
+ORD-422948,31845320,24/02/25,Shipped,Delayed delivery
+ORD-663672,29967405,22/03/25,Pending,Wrong item received
+ORD-835146,32421358,13/03/25,Shipped,Order not delivered
+ORD-508582,23958718,28/02/25,Cancelled,Delayed delivery
+ORD-993988,26040166,01/03/25,Cancelled,Order not delivered
+ORD-389368,30977816,15/02/25,Pending,Delayed delivery
+ORD-976511,30163058,30/01/25,Shipped,Wrong item received
+ORD-777278,27043120,05/04/25,Pending,Order not delivered
+ORD-420218,31588867,19/02/25,Delivered,Delayed delivery
+ORD-185827,30509456,08/04/25,Returned,Wrong item received
+ORD-842697,24681502,18/03/25,Pending,Wrong item received
+ORD-315954,23879270,26/03/25,Shipped,Order not delivered
+ORD-786961,18488958,23/04/25,Returned,Return request
+ORD-124422,29884037,18/03/25,Pending,Refund not received
+ORD-161865,29330972,01/03/25,Delivered,Wrong item received
+ORD-101015,23532830,16/02/25,Cancelled,Wrong item received
+ORD-832195,31027923,10/03/25,Cancelled,Wrong item received
+ORD-532293,26851640,25/01/25,Pending,Wrong item received
+ORD-280634,31297747,03/02/25,Delivered,Refund not received
+ORD-500449,28768836,22/02/25,Shipped,Refund not received
+ORD-662199,22709844,21/04/25,Returned,Refund not received
+ORD-641476,24588528,15/02/25,Cancelled,Order not delivered
+ORD-753510,30149614,25/01/25,Returned,Delayed delivery
+ORD-708163,32578091,10/04/25,Delivered,Return request
+ORD-480609,30715795,14/04/25,Shipped,Delayed delivery
+ORD-692778,30738093,23/02/25,Shipped,Return request
+ORD-886924,21979124,02/02/25,Delivered,Order not delivered
+ORD-502027,18515628,19/03/25,Cancelled,Wrong item received
+ORD-197819,24524688,21/03/25,Returned,Refund not received
+ORD-623632,20123830,23/04/25,Pending,Return request
+ORD-375632,26026364,11/03/25,Returned,Wrong item received
+ORD-629479,30425385,09/02/25,Pending,Order not delivered
+ORD-783176,32493865,18/04/25,Shipped,Wrong item received
+ORD-639298,30003451,05/03/25,Delivered,Return request
+ORD-179985,12390212,08/04/25,Delivered,Delayed delivery
+ORD-130096,33534674,28/01/25,Shipped,Refund not received
+ORD-477907,22194168,10/04/25,Cancelled,Return request
+ORD-307592,29148252,26/03/25,Cancelled,Refund not received
+ORD-993774,27164998,18/03/25,Cancelled,Return request
+ORD-525709,25228876,06/04/25,Cancelled,Return request
+ORD-942343,24380286,12/03/25,Delivered,Wrong item received
+ORD-385217,29946579,27/02/25,Delivered,Return request
+ORD-224488,23596156,17/04/25,Cancelled,Return request
+ORD-158774,33084748,24/03/25,Pending,Refund not received
+ORD-321471,30603029,22/04/25,Shipped,Order not delivered
+ORD-453129,27413054,19/03/25,Shipped,Wrong item received
+ORD-231758,18342112,22/02/25,Pending,Order not delivered
+ORD-875419,31818893,30/01/25,Cancelled,Delayed delivery
+ORD-676106,31793640,12/03/25,Cancelled,Order not delivered
+ORD-371440,28768834,28/01/25,Returned,Refund not received
+ORD-134140,20716590,06/02/25,Shipped,Delayed delivery
+ORD-108075,33526450,15/04/25,Delivered,Return request
+ORD-248503,15939002,03/03/25,Pending,Refund not received
+ORD-695415,32820355,05/04/25,Delivered,Delayed delivery
+ORD-598894,25516310,04/03/25,Delivered,Order not delivered
+ORD-572694,24800348,10/02/25,Shipped,Wrong item received
+ORD-902073,30790167,10/02/25,Returned,Order not delivered
+ORD-444387,32323251,29/01/25,Pending,Refund not received
+ORD-656515,30009478,05/02/25,Returned,Order not delivered
+ORD-413112,31667658,21/02/25,Shipped,Wrong item received
+ORD-235947,15400604,25/03/25,Pending,Wrong item received
+ORD-927162,30426339,26/01/25,Cancelled,Order not delivered
+ORD-103070,30163058,11/03/25,Delivered,Delayed delivery
+ORD-560363,20867454,03/02/25,Returned,Refund not received
+ORD-147407,25827604,22/04/25,Pending,Return request
+ORD-205626,23772398,07/03/25,Cancelled,Wrong item received
+ORD-740546,14438460,24/04/25,Pending,Wrong item received
+ORD-474081,26101798,14/02/25,Shipped,Order not delivered
+ORD-109525,25981854,05/04/25,Shipped,Return request
+ORD-366665,30062187,23/03/25,Delivered,Order not delivered
+ORD-998612,25894028,10/04/25,Delivered,Order not delivered
+ORD-715241,31196569,27/03/25,Delivered,Return request
+ORD-942783,30561016,03/03/25,Returned,Order not delivered
+ORD-777489,31873132,24/03/25,Cancelled,Delayed delivery
+ORD-285880,31772186,29/01/25,Cancelled,Order not delivered
+ORD-390176,30135670,12/04/25,Returned,Delayed delivery
+ORD-813450,30884682,11/04/25,Returned,Wrong item received
+ORD-547617,31917218,24/03/25,Delivered,Wrong item received
+ORD-328158,24113870,11/04/25,Returned,Order not delivered
+ORD-244217,30486914,12/03/25,Shipped,Refund not received
+ORD-688615,33536352,20/03/25,Pending,Order not delivered
+ORD-979967,27498130,08/03/25,Delivered,Return request
+ORD-774049,31012276,19/02/25,Shipped,Refund not received
+ORD-500405,32983196,29/01/25,Pending,Return request
+ORD-578748,31984852,10/04/25,Returned,Refund not received
+ORD-643733,31016632,19/03/25,Returned,Return request
+ORD-625933,15108174,12/03/25,Delivered,Order not delivered
+ORD-140688,21679342,17/02/25,Pending,Return request
+ORD-176314,30101147,24/02/25,Cancelled,Wrong item received
+ORD-226457,21285990,28/02/25,Shipped,Return request
+ORD-162383,33327282,14/04/25,Returned,Delayed delivery
+ORD-429799,20502048,30/03/25,Pending,Order not delivered
+ORD-352870,30378237,28/01/25,Shipped,Order not delivered
+ORD-259155,14878088,10/03/25,Delivered,Refund not received
+ORD-153784,22492632,13/03/25,Pending,Refund not received
+ORD-377625,28469248,15/04/25,Shipped,Return request
+ORD-585549,32536556,03/02/25,Shipped,Refund not received
+ORD-562601,25767600,08/03/25,Shipped,Order not delivered
+ORD-697746,28282856,06/04/25,Pending,Wrong item received
+ORD-236717,30233134,17/04/25,Cancelled,Refund not received
+ORD-134010,26042974,13/04/25,Shipped,Delayed delivery
+ORD-487791,25856236,22/04/25,Delivered,Wrong item received
+ORD-677309,31101852,21/04/25,Pending,Refund not received
+ORD-240508,31270449,17/03/25,Shipped,Refund not received
+ORD-117383,31938622,23/03/25,Delivered,Return request
+ORD-975576,22492640,26/03/25,Cancelled,Order not delivered
+ORD-314744,32564856,02/04/25,Shipped,Delayed delivery
+ORD-265667,11160642,01/02/25,Cancelled,Refund not received
+ORD-691003,27411620,27/01/25,Shipped,Wrong item received
+ORD-805278,10887506,23/04/25,Shipped,Return request
+ORD-182888,31178281,05/04/25,Cancelled,Delayed delivery
+ORD-570867,29603350,24/03/25,Delivered,Delayed delivery
+ORD-338676,26239024,02/03/25,Pending,Delayed delivery
+ORD-737129,18612470,14/04/25,Delivered,Return request
+ORD-159489,29437128,02/03/25,Delivered,Order not delivered
+ORD-896907,13032150,09/03/25,Delivered,Delayed delivery
+ORD-477692,31596753,05/03/25,Shipped,Return request
+ORD-677850,25282850,09/03/25,Cancelled,Refund not received
+ORD-507759,32918065,11/04/25,Delivered,Refund not received
+ORD-938509,24029888,02/02/25,Cancelled,Return request
+ORD-479166,30431648,04/02/25,Pending,Return request
+ORD-713425,16997726,01/03/25,Cancelled,Order not delivered
+ORD-394344,19502418,01/03/25,Returned,Return request
+ORD-339843,10991366,18/04/25,Cancelled,Wrong item received
+ORD-713136,14438460,07/03/25,Delivered,Delayed delivery
+ORD-580459,30113850,05/02/25,Delivered,Order not delivered
+ORD-708299,22510798,23/02/25,Returned,Refund not received
+ORD-269831,31584220,28/03/25,Delivered,Refund not received
+ORD-155587,32503332,20/04/25,Pending,Order not delivered
+ORD-538664,22992478,06/02/25,Shipped,Wrong item received
+ORD-535326,30941963,17/02/25,Delivered,Wrong item received
+ORD-265008,23756158,04/02/25,Returned,Return request
+ORD-856753,18066306,28/02/25,Pending,Return request
+ORD-261351,31958065,01/02/25,Cancelled,Wrong item received
+ORD-990810,31222292,17/02/25,Shipped,Delayed delivery
+ORD-482274,24989140,19/02/25,Shipped,Return request
+ORD-270562,26959548,24/04/25,Returned,Order not delivered
+ORD-610106,29418316,13/03/25,Shipped,Order not delivered
+ORD-871581,28752986,12/04/25,Shipped,Order not delivered
+ORD-371254,23131224,23/02/25,Returned,Return request
+ORD-659812,26867036,09/04/25,Shipped,Return request
+ORD-250503,28026358,17/03/25,Pending,Return request
+ORD-113927,23532830,25/03/25,Cancelled,Delayed delivery
+ORD-829885,31636374,17/04/25,Pending,Delayed delivery
+ORD-593556,25816492,07/03/25,Returned,Return request
+ORD-833109,32421213,11/02/25,Cancelled,Refund not received
+ORD-774969,11359198,21/02/25,Shipped,Order not delivered
+ORD-621131,32522741,18/03/25,Cancelled,Return request
+ORD-981644,25916588,02/04/25,Shipped,Return request
+ORD-131749,31602059,03/03/25,Shipped,Refund not received
+ORD-686596,12288052,02/03/25,Cancelled,Wrong item received
+ORD-964354,31616976,13/04/25,Delivered,Refund not received
+ORD-500036,27864044,19/02/25,Returned,Wrong item received
+ORD-759011,32093862,23/02/25,Pending,Return request
+ORD-252384,31005399,22/02/25,Delivered,Delayed delivery
+ORD-463079,33382168,12/02/25,Cancelled,Delayed delivery
+ORD-843269,19063728,27/01/25,Cancelled,Order not delivered
+ORD-797753,19996116,08/02/25,Shipped,Return request
+ORD-508742,27530700,15/02/25,Delivered,Order not delivered
+ORD-722881,21934358,08/02/25,Returned,Refund not received
+ORD-712507,31178422,14/04/25,Returned,Order not delivered
+ORD-999699,32662456,23/04/25,Shipped,Order not delivered
+ORD-102426,32316806,05/02/25,Shipped,Return request
+ORD-532817,26209124,05/04/25,Cancelled,Wrong item received
+ORD-360142,31926599,08/04/25,Shipped,Wrong item received
+ORD-639926,32213493,10/02/25,Shipped,Refund not received
+ORD-906577,33191692,26/02/25,Delivered,Return request
+ORD-788254,29420282,08/04/25,Returned,Return request
+ORD-172940,30575862,12/03/25,Delivered,Refund not received
+ORD-869907,32467239,05/03/25,Cancelled,Wrong item received
+ORD-483213,31538240,22/02/25,Shipped,Delayed delivery
+ORD-571665,29947778,25/01/25,Cancelled,Return request
+ORD-801234,28954312,16/03/25,Returned,Delayed delivery
+ORD-781404,26775484,01/03/25,Cancelled,Wrong item received
+ORD-481444,23808148,18/04/25,Cancelled,Refund not received
+ORD-407233,32917378,30/03/25,Returned,Return request
+ORD-134233,21179982,29/03/25,Cancelled,Return request
+ORD-312507,29001242,23/04/25,Pending,Delayed delivery
+ORD-360659,32253804,21/03/25,Pending,Refund not received
+ORD-251426,30246620,26/02/25,Shipped,Refund not received
+ORD-469174,32819701,31/03/25,Cancelled,Delayed delivery
+ORD-524293,19780244,26/02/25,Delivered,Delayed delivery
+ORD-271419,21201194,12/03/25,Shipped,Order not delivered
+ORD-137625,29425730,13/03/25,Shipped,Order not delivered
+ORD-419200,17771274,04/03/25,Shipped,Delayed delivery
+ORD-951748,26449328,25/02/25,Pending,Order not delivered
+ORD-322220,29574452,21/04/25,Cancelled,Delayed delivery
+ORD-691301,25092812,09/04/25,Returned,Wrong item received
+ORD-602077,30225255,28/01/25,Pending,Refund not received
+ORD-502100,31690099,20/02/25,Cancelled,Return request
+ORD-483606,33060141,30/01/25,Returned,Refund not received
+ORD-863275,31438191,10/02/25,Returned,Order not delivered
+ORD-545776,31012271,16/02/25,Pending,Return request
+ORD-121939,31750664,04/02/25,Cancelled,Refund not received
+ORD-228688,32353869,23/03/25,Delivered,Refund not received
+ORD-599610,22892978,08/04/25,Shipped,Return request
+ORD-817923,11542062,18/03/25,Delivered,Refund not received
+ORD-468647,32354529,04/04/25,Returned,Wrong item received
+ORD-410506,29099516,21/02/25,Cancelled,Refund not received
+ORD-952096,28594478,29/01/25,Delivered,Order not delivered
+ORD-535714,30957549,22/04/25,Delivered,Wrong item received
+ORD-679107,31178387,07/03/25,Delivered,Return request
+ORD-139220,30975156,25/01/25,Delivered,Order not delivered
+ORD-131532,19472756,13/02/25,Delivered,Order not delivered
+ORD-115654,30149535,08/02/25,Pending,Wrong item received
+ORD-834482,25816748,12/02/25,Delivered,Order not delivered
+ORD-285266,20502060,09/04/25,Delivered,Order not delivered
+ORD-982130,31391315,19/04/25,Shipped,Wrong item received
+ORD-657801,23909580,01/02/25,Pending,Order not delivered
+ORD-829459,29978031,28/02/25,Shipped,Wrong item received
+ORD-159592,24578552,06/02/25,Pending,Return request
+ORD-797969,26033652,15/02/25,Pending,Return request
+ORD-532573,25856086,04/02/25,Returned,Return request
+ORD-898912,26389024,08/03/25,Delivered,Order not delivered
+ORD-285399,27873812,01/02/25,Shipped,Return request
+ORD-951428,32059320,18/03/25,Delivered,Refund not received
+ORD-389368,11986136,28/02/25,Delivered,Order not delivered
+ORD-997159,30093194,28/03/25,Cancelled,Wrong item received
+ORD-234279,32573438,23/03/25,Returned,Refund not received
+ORD-315207,26022744,28/02/25,Cancelled,Order not delivered
+ORD-823291,31326596,05/03/25,Returned,Return request
+ORD-486274,28055964,30/01/25,Pending,Delayed delivery
+ORD-780604,17676544,17/04/25,Returned,Wrong item received
+ORD-414485,27729380,22/02/25,Returned,Wrong item received
+ORD-870407,17289166,04/03/25,Returned,Return request
+ORD-596420,27241366,13/02/25,Returned,Wrong item received
+ORD-187773,16823510,17/03/25,Shipped,Refund not received
+ORD-328002,30892899,31/03/25,Shipped,Return request
+ORD-495985,25827460,13/04/25,Returned,Wrong item received
+ORD-896954,32722093,28/03/25,Delivered,Refund not received
+ORD-188292,23053324,12/04/25,Returned,Refund not received
+ORD-459052,24001860,03/02/25,Returned,Return request
+ORD-999525,30129286,29/01/25,Pending,Wrong item received
+ORD-689487,20542264,12/04/25,Pending,Order not delivered
+ORD-801451,31112684,26/01/25,Pending,Return request
+ORD-705083,22807848,09/02/25,Delivered,Delayed delivery
+ORD-225623,25156386,21/04/25,Returned,Wrong item received
+ORD-475786,28961246,06/04/25,Returned,Delayed delivery
+ORD-428096,29361610,19/02/25,Pending,Return request
+ORD-283478,27756752,05/02/25,Returned,Order not delivered
+ORD-441104,31451109,12/03/25,Pending,Return request
+ORD-982493,21538152,19/04/25,Shipped,Return request
+ORD-590898,32100275,11/02/25,Cancelled,Wrong item received
+ORD-164557,26889856,13/02/25,Shipped,Return request
+ORD-748266,28119828,23/04/25,Pending,Order not delivered
+ORD-871533,26825172,04/03/25,Shipped,Wrong item received
+ORD-274890,33181749,04/02/25,Shipped,Delayed delivery
+ORD-716141,19632466,25/03/25,Cancelled,Order not delivered
+ORD-469631,31058736,15/04/25,Pending,Delayed delivery
+ORD-328385,26358634,02/03/25,Pending,Delayed delivery
+ORD-540355,24086504,25/01/25,Shipped,Wrong item received
+ORD-874950,29953125,04/03/25,Pending,Delayed delivery
+ORD-491858,27048228,09/03/25,Pending,Return request
+ORD-368380,30766024,30/03/25,Returned,Order not delivered
+ORD-829100,31600492,19/03/25,Returned,Delayed delivery
+ORD-972626,29808898,08/02/25,Returned,Refund not received
+ORD-535003,19710178,04/02/25,Cancelled,Order not delivered
+ORD-351411,17300386,13/04/25,Cancelled,Delayed delivery
+ORD-597900,23369998,15/04/25,Returned,Return request
+ORD-972187,29961770,12/03/25,Pending,Order not delivered
+ORD-394303,24316684,25/01/25,Returned,Wrong item received
+ORD-168713,15026870,24/04/25,Delivered,Delayed delivery
+ORD-862008,30161706,13/02/25,Delivered,Wrong item received
+ORD-876696,30089303,04/04/25,Cancelled,Wrong item received
+ORD-564141,27558848,03/03/25,Returned,Wrong item received
+ORD-672766,29330996,18/04/25,Cancelled,Delayed delivery
+ORD-724327,30392735,27/02/25,Delivered,Wrong item received
+ORD-859676,30252360,01/02/25,Delivered,Wrong item received
+ORD-849684,30588211,05/03/25,Returned,Delayed delivery
+ORD-458362,33241152,03/03/25,Cancelled,Order not delivered
+ORD-831123,22051064,13/04/25,Cancelled,Order not delivered
+ORD-732524,29912110,13/02/25,Cancelled,Delayed delivery
+ORD-178350,29499188,26/02/25,Cancelled,Order not delivered
+ORD-222556,29192682,12/02/25,Delivered,Delayed delivery
+ORD-368779,26432960,20/04/25,Shipped,Order not delivered
+ORD-678939,31386981,19/04/25,Shipped,Order not delivered
+ORD-623900,27334882,12/04/25,Delivered,Delayed delivery
+ORD-861705,31496494,01/04/25,Shipped,Delayed delivery
+ORD-609762,29281762,04/04/25,Shipped,Return request
+ORD-261852,24250912,25/02/25,Returned,Wrong item received
+ORD-459347,29954931,18/02/25,Returned,Delayed delivery
+ORD-231070,28549780,12/02/25,Shipped,Wrong item received
+ORD-350486,30191546,07/04/25,Returned,Refund not received
+ORD-239511,31069625,30/03/25,Pending,Refund not received
+ORD-607008,29289944,16/03/25,Cancelled,Delayed delivery
+ORD-234790,24093680,23/02/25,Delivered,Wrong item received
+ORD-862601,29967390,19/02/25,Shipped,Return request
+ORD-591318,22239382,26/03/25,Shipped,Return request
+ORD-512302,32422452,15/04/25,Cancelled,Delayed delivery
+ORD-601359,32811324,29/01/25,Pending,Return request
+ORD-151044,32644202,07/04/25,Cancelled,Return request
+ORD-766630,33615144,01/04/25,Cancelled,Wrong item received
+ORD-129231,28799114,20/03/25,Delivered,Refund not received
+ORD-934754,26387042,29/01/25,Pending,Order not delivered
+ORD-713113,30066444,16/02/25,Delivered,Refund not received
+ORD-490507,31123050,20/03/25,Shipped,Wrong item received
+ORD-411242,31799177,12/04/25,Pending,Wrong item received
+ORD-734419,30872912,24/04/25,Pending,Order not delivered
+ORD-899185,27239912,26/03/25,Delivered,Order not delivered
+ORD-540891,10968524,08/04/25,Delivered,Wrong item received
+ORD-667627,28003754,28/01/25,Returned,Return request
+ORD-656194,14954722,05/02/25,Returned,Delayed delivery
+ORD-532994,32316400,22/03/25,Returned,Wrong item received
+ORD-149003,27449710,11/03/25,Delivered,Order not delivered
+ORD-244898,26029502,07/02/25,Delivered,Order not delivered
+ORD-295552,31799177,18/02/25,Delivered,Return request
+ORD-877272,30321624,16/03/25,Cancelled,Delayed delivery
+ORD-640121,31391315,10/03/25,Shipped,Return request
+ORD-428701,10108333,07/03/25,Shipped,Refund not received
+ORD-298098,32058748,06/04/25,Shipped,Order not delivered
+ORD-760547,31293574,05/03/25,Cancelled,Wrong item received
+ORD-510542,33186089,08/04/25,Delivered,Order not delivered
+ORD-961380,31039726,17/04/25,Shipped,Refund not received
+ORD-814140,24157238,19/04/25,Returned,Refund not received
+ORD-791649,25375826,24/03/25,Delivered,Wrong item received
+ORD-698478,30641539,01/03/25,Returned,Wrong item received
+ORD-350052,31369727,15/04/25,Returned,Order not delivered
+ORD-962657,21631554,18/03/25,Delivered,Wrong item received
+ORD-602772,33494419,03/03/25,Pending,Refund not received
+ORD-898179,31376542,29/01/25,Cancelled,Delayed delivery
+ORD-176548,28119818,16/02/25,Delivered,Wrong item received
+ORD-222980,31013095,15/04/25,Returned,Order not delivered
+ORD-776073,31066425,26/01/25,Pending,Order not delivered
+ORD-661965,33034686,26/02/25,Returned,Delayed delivery
+ORD-226923,17664000,05/02/25,Cancelled,Delayed delivery
+ORD-584093,29705530,06/02/25,Cancelled,Delayed delivery
+ORD-730808,30026556,27/02/25,Cancelled,Order not delivered
+ORD-749521,2167365,08/02/25,Cancelled,Refund not received
+ORD-833623,32729489,06/03/25,Shipped,Delayed delivery
+ORD-807511,24815142,03/04/25,Cancelled,Delayed delivery
+ORD-651144,30063125,22/02/25,Cancelled,Delayed delivery
+ORD-701142,25067604,11/04/25,Returned,Refund not received
+ORD-518523,33113287,09/02/25,Cancelled,Return request
+ORD-225401,30018949,03/03/25,Shipped,Order not delivered
+ORD-544725,7288105,17/04/25,Shipped,Delayed delivery
+ORD-463672,6532594,27/03/25,Shipped,Wrong item received
+ORD-387189,31915767,20/03/25,Pending,Return request
+ORD-976354,19674978,04/02/25,Delivered,Delayed delivery
+ORD-807822,32419712,25/01/25,Pending,Delayed delivery
+ORD-442900,23901944,10/02/25,Cancelled,Delayed delivery
+ORD-846788,32156945,19/03/25,Pending,Wrong item received
+ORD-771895,30426839,02/02/25,Delivered,Return request
+ORD-941683,32597818,02/03/25,Returned,Order not delivered
+ORD-807979,18833480,25/01/25,Cancelled,Delayed delivery
+ORD-960329,31434223,06/04/25,Returned,Wrong item received
+ORD-318602,25775138,10/03/25,Shipped,Refund not received
+ORD-981537,32494395,01/03/25,Delivered,Return request
+ORD-902858,24237806,24/01/25,Cancelled,Wrong item received
+ORD-268572,16682532,06/03/25,Pending,Return request
+ORD-682810,20123830,04/03/25,Returned,Order not delivered
+ORD-825221,30743313,21/04/25,Cancelled,Delayed delivery
+ORD-412575,28080318,04/02/25,Delivered,Return request
+ORD-312986,28469252,26/02/25,Returned,Refund not received
+ORD-738037,31420414,15/03/25,Delivered,Order not delivered
+ORD-881130,30431648,10/02/25,Pending,Order not delivered
+ORD-149713,31539926,04/04/25,Returned,Delayed delivery
+ORD-363846,31398872,23/04/25,Cancelled,Return request
+ORD-592589,32997669,03/02/25,Cancelled,Delayed delivery
+ORD-520011,32339945,11/02/25,Cancelled,Order not delivered
+ORD-340682,32254427,20/04/25,Delivered,Return request
+ORD-985056,28037590,23/03/25,Cancelled,Refund not received
+ORD-696324,31035950,18/03/25,Shipped,Order not delivered
+ORD-167123,32814817,25/03/25,Returned,Refund not received
+ORD-892694,25916588,03/02/25,Pending,Wrong item received
+ORD-622569,21337016,20/02/25,Pending,Order not delivered
+ORD-679001,31028003,08/04/25,Returned,Order not delivered
+ORD-755508,31275203,08/02/25,Pending,Refund not received
+ORD-354133,30440083,03/04/25,Returned,Return request
+ORD-972837,31426920,17/02/25,Pending,Delayed delivery
+ORD-234168,23138506,05/02/25,Cancelled,Order not delivered
+ORD-222585,1299590,09/02/25,Delivered,Order not delivered
+ORD-890791,24412564,08/02/25,Delivered,Wrong item received
+ORD-404421,30612351,28/02/25,Cancelled,Order not delivered
+ORD-266896,26819106,07/03/25,Cancelled,Order not delivered
+ORD-250959,28730674,25/01/25,Pending,Delayed delivery
+ORD-933406,29876529,23/04/25,Returned,Return request
+ORD-605970,29999641,23/02/25,Pending,Return request
+ORD-943092,33273813,31/01/25,Delivered,Return request
+ORD-415592,25396392,19/04/25,Shipped,Refund not received
+ORD-432278,31532395,24/03/25,Cancelled,Delayed delivery
+ORD-585690,25183700,30/01/25,Shipped,Delayed delivery
+ORD-178381,26918186,11/03/25,Delivered,Wrong item received
+ORD-151782,30838860,11/02/25,Shipped,Refund not received
+ORD-399341,31941000,18/03/25,Shipped,Wrong item received
+ORD-151222,17319456,27/01/25,Returned,Delayed delivery
+ORD-893301,31066425,26/01/25,Pending,Wrong item received
+ORD-652870,30468827,04/04/25,Cancelled,Delayed delivery
+ORD-803372,30974647,03/03/25,Returned,Return request
+ORD-742260,26332400,10/03/25,Pending,Order not delivered
+ORD-660828,32158503,29/03/25,Cancelled,Return request
+ORD-716296,2290043,28/02/25,Delivered,Order not delivered
+ORD-703730,26701530,05/02/25,Cancelled,Return request
+ORD-267977,24738936,29/03/25,Cancelled,Order not delivered
+ORD-366772,23138584,03/03/25,Shipped,Wrong item received
+ORD-712022,31736016,13/04/25,Cancelled,Delayed delivery
+ORD-173807,17780842,20/03/25,Delivered,Delayed delivery
+ORD-321565,26616552,02/03/25,Cancelled,Wrong item received
+ORD-779894,32421358,26/03/25,Returned,Refund not received
+ORD-677859,29901633,07/04/25,Returned,Order not delivered
+ORD-289247,25641998,07/03/25,Shipped,Refund not received
+ORD-953098,19341516,24/04/25,Delivered,Delayed delivery
+ORD-814716,31644058,02/03/25,Cancelled,Wrong item received
+ORD-932907,18876028,23/02/25,Returned,Delayed delivery
+ORD-779627,26570184,01/02/25,Cancelled,Refund not received
+ORD-627376,30209638,08/04/25,Returned,Wrong item received
+ORD-737336,29828040,24/02/25,Returned,Return request
+ORD-312522,32063776,24/04/25,Cancelled,Delayed delivery
+ORD-707872,30809515,16/02/25,Delivered,Order not delivered
+ORD-530668,12193152,24/01/25,Pending,Delayed delivery
+ORD-705901,31036717,20/02/25,Returned,Wrong item received
+ORD-177334,30927442,20/03/25,Returned,Return request
+ORD-592081,19964312,22/04/25,Pending,Return request
+ORD-268533,27205698,06/03/25,Shipped,Return request
+ORD-172041,30659807,14/02/25,Delivered,Refund not received
+ORD-218578,21556448,31/01/25,Pending,Refund not received
+ORD-265229,29284582,12/04/25,Pending,Return request
+ORD-895393,32694040,25/03/25,Returned,Wrong item received
+ORD-228019,28229602,22/04/25,Pending,Refund not received
+ORD-354464,32582513,26/01/25,Returned,Wrong item received
+ORD-135734,27102220,07/02/25,Returned,Wrong item received
+ORD-500144,32241056,26/01/25,Cancelled,Delayed delivery
+ORD-719764,27332018,01/02/25,Pending,Delayed delivery
+ORD-130796,25396392,01/02/25,Cancelled,Order not delivered
+ORD-236161,19926380,21/04/25,Delivered,Refund not received
+ORD-848798,25724996,02/04/25,Delivered,Wrong item received
+ORD-111240,26758566,02/04/25,Cancelled,Wrong item received
+ORD-261511,31184764,08/03/25,Delivered,Wrong item received
+ORD-362165,30894234,20/04/25,Pending,Order not delivered
+ORD-631684,31189139,23/02/25,Cancelled,Refund not received
+ORD-625030,30702191,17/02/25,Pending,Delayed delivery
+ORD-693226,32084868,03/02/25,Returned,Order not delivered
+ORD-471742,29910103,26/01/25,Shipped,Wrong item received
+ORD-775307,17604982,23/02/25,Delivered,Order not delivered
+ORD-602455,31174430,12/04/25,Shipped,Order not delivered
+ORD-832182,31743200,05/03/25,Pending,Wrong item received
+ORD-497913,31012127,12/03/25,Pending,Delayed delivery
+ORD-817767,31036717,07/04/25,Delivered,Refund not received
+ORD-324730,21396712,05/03/25,Shipped,Refund not received
+ORD-807715,29347134,31/01/25,Returned,Delayed delivery
+ORD-834853,31384833,17/03/25,Delivered,Wrong item received
+ORD-971833,33180247,01/04/25,Cancelled,Wrong item received
+ORD-844705,32753380,28/02/25,Cancelled,Return request
+ORD-313280,26272850,15/04/25,Cancelled,Delayed delivery
+ORD-176191,26209132,04/04/25,Pending,Order not delivered
+ORD-591171,32598509,24/03/25,Cancelled,Delayed delivery
+ORD-748689,32635496,19/03/25,Cancelled,Wrong item received
+ORD-704017,23026916,10/03/25,Returned,Order not delivered
+ORD-100098,27435294,26/02/25,Shipped,Wrong item received
+ORD-447396,28987922,03/03/25,Shipped,Refund not received
+ORD-267307,27135196,23/04/25,Pending,Delayed delivery
+ORD-495600,31810496,21/02/25,Shipped,Refund not received
+ORD-381706,30948935,06/03/25,Shipped,Return request
+ORD-399126,29103054,04/02/25,Returned,Delayed delivery
+ORD-749976,32874431,02/03/25,Pending,Delayed delivery
+ORD-416997,33300783,31/01/25,Pending,Refund not received
+ORD-786858,26616784,20/04/25,Returned,Refund not received
+ORD-948496,33285892,29/03/25,Returned,Refund not received
+ORD-810680,21944882,09/03/25,Returned,Order not delivered
+ORD-671720,27048716,22/02/25,Pending,Return request
+ORD-943529,18789524,16/04/25,Returned,Wrong item received
+ORD-741323,30970234,12/03/25,Pending,Return request
+ORD-360410,29194390,07/03/25,Delivered,Wrong item received
+ORD-323527,24230598,12/04/25,Delivered,Order not delivered
+ORD-524037,26275498,13/04/25,Shipped,Delayed delivery
+ORD-321009,28718616,24/03/25,Cancelled,Refund not received
+ORD-792406,31596596,26/02/25,Cancelled,Wrong item received
+ORD-333895,17780946,12/02/25,Returned,Return request
+ORD-275259,31596693,11/04/25,Delivered,Order not delivered
+ORD-908516,24559004,28/03/25,Returned,Refund not received
+ORD-847115,23589036,15/04/25,Pending,Wrong item received
+ORD-118573,17087048,17/02/25,Shipped,Refund not received
+ORD-975393,21088278,18/02/25,Shipped,Wrong item received
