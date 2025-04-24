@@ -2,7 +2,6 @@
 
 <img src="image.png" alt="MyStyle-AI Logo" width="160"/>
 
-<br>
 
 # 🛍️ Shopping AI Assistant
 
