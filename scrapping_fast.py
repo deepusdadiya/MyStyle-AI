@@ -5,8 +5,8 @@ import random
 import time
 
 CATEGORIES = [
-    {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
-    # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
+    # {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
+    {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
     # {"name": "Men T-Shirts 26-40", "url": "https://www.myntra.com/men-tshirts"},
     # {"name": "Men Jeans 26-50", "url": "https://www.myntra.com/men-jeans"},
     # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
