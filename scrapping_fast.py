@@ -6,15 +6,15 @@ import time
 
 CATEGORIES = [
     {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
-    {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
-    {"name": "Men T-Shirts 26-40", "url": "https://www.myntra.com/men-tshirts"},
-    {"name": "Men Jeans 26-50", "url": "https://www.myntra.com/men-jeans"},
-    {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
-    {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
-    {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
-    {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
-    {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
-    {"name": "Women Trousers 26-50", "url": "https://www.myntra.com/women-trousers"},
+    # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
+    # {"name": "Men T-Shirts 26-40", "url": "https://www.myntra.com/men-tshirts"},
+    # {"name": "Men Jeans 26-50", "url": "https://www.myntra.com/men-jeans"},
+    # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
+    # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
+    # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
+    # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
+    # {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
+    # {"name": "Women Trousers 26-50", "url": "https://www.myntra.com/women-trousers"},
 ]
 NUM_PAGES = 25
 MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
@@ -42,22 +42,21 @@ async def scrape_product_detail(context, product_link, category_name):
                 except:
                     price = "N/A"
 
+                # Multiple image URLs
                 try:
-                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight / 2)")
+                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                     await asyncio.sleep(1.5)
-                    await page.wait_for_selector("img[src*='assets.myntassets.com']", timeout=10000)
                     image_elements = page.locator("img[src*='assets.myntassets.com']")
                     image_count = await image_elements.count()
-                    for i in range(image_count):
+                    image_urls = []
+                    for i in range(min(image_count, 8)):
                         src = await image_elements.nth(i).get_attribute("src")
-                        if src and "http" in src:
-                            image_url = src
-                            break
-                    else:
-                        image_url = "N/A"
+                        if src and "http" in src and src not in image_urls:
+                            image_urls.append(src)
+                    image_url_combined = "|".join(image_urls)
                 except Exception as e:
-                    print(f"[!] Image not found after scroll and wait: {e}")
-                    image_url = "N/A"
+                    print(f"[!] Error fetching images: {e}")
+                    image_url_combined = "N/A"
 
                 try:
                     description = await page.locator(".pdp-productDescriptorsContainer").text_content()
@@ -80,7 +79,52 @@ async def scrape_product_detail(context, product_link, category_name):
                 except:
                     stock_status = "Out of Stock"
 
-                print(f"[✓] {name[:40]} | ₹{price} | {rating} | {stock_status} | {category_name}")
+                try:
+                    size_elements = await page.locator(".size-buttons-size-button").all_text_contents()
+                    cleaned_sizes = []
+                    for size in size_elements:
+                        size_clean = size.split("Rs")[0].strip()
+                        size_clean = size_clean.split("₹")[0].strip()  # extra fallback
+                        if size_clean:
+                            cleaned_sizes.append(size_clean)
+                    available_sizes = " | ".join(cleaned_sizes) if cleaned_sizes else "N/A"
+                except:
+                    available_sizes = "N/A"
+
+                fit_keywords = [
+                    "slim fit", "regular fit", "skinny fit", "super skinny fit", "tapered fit", "relaxed fit", "loose fit", 
+                    "straight fit", "comfort fit", "tailored fit", "athletic fit", "narrow fit", "muscle fit", "baggy fit", "bootcut fit"
+                ]
+                try:
+                    fit_type = "N/A"
+                    product_info = await page.locator(".pdp-productDescriptorsContainer").text_content()
+                    product_info_lower = product_info.lower()
+                    for keyword in fit_keywords:
+                        if keyword in product_info_lower:
+                            fit_type = keyword.title()
+                            break
+                except:
+                    fit_type = "N/A"
+
+                material_keywords = ["cotton", "polyester", "rayon", "viscose", "linen", "nylon", "modal", "jersey",
+                "spandex", "lycra", "elastane", "silk", "wool", "acrylic", "bamboo", "satin", "chiffon", "georgette", "net", 
+                "blend", "terrycot", "khadi", "denim", "cotton", "polyester", "viscose", "lycra", "elastane", "nylon",
+                "spandex", "twill", "wool", "rayon", "terrycot", "linen", "stretch denim", "chino", "gabardine", "canvas", 
+                "corduroy", "satin", "blend", "leather", "synthetic", "canvas", "mesh", "rubber", "eva", "foam", "nylon",
+                "textile", "suede", "fabric", "knit", "flyknit", "phylon", "tpr", "pu", "polyurethane", "polyester", "plastic", 
+                "air mesh", "netted", "neoprene"]
+                try:
+                    material_type = "N/A"
+                    product_info = await page.locator(".pdp-productDescriptorsContainer").text_content()
+                    product_info_lower = product_info.lower()
+                    for keyword in material_keywords:
+                        if keyword in product_info_lower:
+                            material_type = keyword.title()
+                            break
+                except:
+                    material_type = "N/A"
+
+                print(f"{product_id} | {name[:40]} | ₹{price} | {rating} | {stock_status} | {category_name} | {available_sizes} | {fit_type} | {material_type}")
 
                 await page.close()
                 return {
@@ -88,10 +132,13 @@ async def scrape_product_detail(context, product_link, category_name):
                     "name": name,
                     "brand": brand,
                     "price": price,
-                    "image_url": image_url,
+                    "image_urls": image_url_combined,
                     "description": description,
                     "rating": rating,
                     "stock_status": stock_status,
+                    "available_sizes": available_sizes,
+                    "fit_type": fit_type,
+                    "material": material_type,
                     "category": category_name,
                     "product_link": product_link
                 }
@@ -122,6 +169,7 @@ async def scrape_listing_page(context, listing_page, page_num, category):
         for r in results:
             if r:
                 all_products.append(r)
+                print(f"Scraped so far: {len(all_products)}")
 
         await asyncio.sleep(random.uniform(*DELAY_BETWEEN_REQUESTS))
     except Exception as e:
