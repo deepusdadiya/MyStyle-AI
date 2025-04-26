@@ -9,14 +9,14 @@ CATEGORIES = [
     # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
     # {"name": "Men T-Shirts 2", "url": "https://www.myntra.com/men-tshirts"},
     # {"name": "Men Jeans 1", "url": "https://www.myntra.com/men-jeans"},
-    {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
-    # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
+    # {"name": "Men Trousers 1", "url": "https://www.myntra.com/men-trousers"},
+    {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
     # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
     # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
     # {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
     # {"name": "Women Trousers 26-50", "url": "https://www.myntra.com/women-trousers"},
 ]
-NUM_PAGES = 20
+NUM_PAGES = 25
 MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
 MAX_RETRIES = 2                    # Retry a failed page
 DELAY_BETWEEN_REQUESTS = (0.5, 2)  # Range of sleep between tasks
