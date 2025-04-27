@@ -11,8 +11,8 @@ CATEGORIES = [
     # {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
     # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
     # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
-    {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
-    # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
+    # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
+    {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
     # {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
     # {"name": "Women Trousers 26-50", "url": "https://www.myntra.com/women-trousers"},
 ]
