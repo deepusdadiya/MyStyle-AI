@@ -14,9 +14,9 @@ CATEGORIES = [
     # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
     # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
     # {"name": "Women Jeans 1", "url": "https://www.myntra.com/women-jeans"},
-    {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
+    {"name": "Women Trousers 1", "url": "https://www.myntra.com/women-trousers"},
 ]
-NUM_PAGES = 17
+NUM_PAGES = 25
 MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
 MAX_RETRIES = 2                    # Retry a failed page
 DELAY_BETWEEN_REQUESTS = (0.5, 2)  # Range of sleep between tasks
@@ -181,7 +181,7 @@ async def scrape_all_pages_for_category(context, category):
     category_products = []
 
     try:
-        for page_num in range(1, NUM_PAGES + 1):
+        for page_num in range(18, NUM_PAGES + 1):
             await page.goto(f"{category['url']}?p={page_num}", timeout=30000)
             await page.wait_for_selector(".product-base", timeout=10000)
 
