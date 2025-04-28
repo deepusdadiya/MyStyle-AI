@@ -27,7 +27,7 @@ index = faiss.IndexFlatIP(dimension)  # IP = Inner Product (for cosine)
 index.add(embedding_matrix)    # Add the vectors to the index
 
 # Save index + metadata
-faiss.write_index(index, "Semantic Search/faiss_product_index.index")    # Save the FAISS index
-df[["product_id", "text_data"]].to_csv("Semantic Search/faiss_metadata.csv", index=False)    # Save metadata
+faiss.write_index(index, "Semantic_Search/faiss_product_index.index")    # Save the FAISS index
+df[["product_id", "text_data"]].to_csv("Semantic_Search/faiss_metadata.csv", index=False)    # Save metadata
 
 print("FAISS index and metadata saved.")

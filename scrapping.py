@@ -46,7 +46,7 @@ async def scrape_product_detail(context, product_link, category_name):
                 try:
                     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                     await asyncio.sleep(1.5)
-                    image_elements = page.locator("img[src*='assets.myntassets.com']")
+                    image_elements = page.locator("div.image-grid-container img")
                     image_count = await image_elements.count()
                     image_urls = []
                     for i in range(min(image_count, 8)):
