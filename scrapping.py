@@ -1,133 +1,227 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
+import asyncio
+from playwright.async_api import async_playwright
 import pandas as pd
+import random
 import time
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
 
+CATEGORIES = [
+    {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
+    {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
+    {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
+    {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
+    {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
+    {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
+    {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
+    {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
+    {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
+    {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
+]
+NUM_PAGES = 25
+MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
+MAX_RETRIES = 2                    # Retry a failed page
+DELAY_BETWEEN_REQUESTS = (0.5, 2)  # Range of sleep between tasks
 
-# --- Setup Chrome Options ---
-chrome_options = Options()
-# chrome_options.add_argument("--headless")  # Run in background
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("--no-sandbox")
-
-chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36")
-chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-chrome_options.add_experimental_option('useAutomationExtension', False)
-chrome_options.add_argument("--headless=new")
-
-# Updated ChromeDriver init
-service = Service()
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-# --- Set up ChromeDriver ---
-driver = webdriver.Chrome(options=chrome_options)
-
-# --- URL for scraping ---
-BASE_URL = "https://www.myntra.com/men-shoes"
-
-# --- Store all product data here ---
 all_products = []
+semaphore = asyncio.Semaphore(MAX_CONCURRENT_PAGES)
 
-# --- Loop through first 100 pages ---
-for page in range(1, 101):
-    print(f"Scraping page {page}...")
-    url = f"{BASE_URL}?p={page}"
-    driver.get(url)
-    # driver.save_screenshot(f"debug_page_{page}.png")
-
-    # Wait for products to load
-    WebDriverWait(driver, 20).until(
-        EC.presence_of_all_elements_located((By.CLASS_NAME, "product-product"))
-    )
-
-    # Get all product containers
-    products = driver.find_elements(By.CLASS_NAME, "product-base")
-
-    for product in products:
-        try:
-            # Get product link
-            link_tag = product.find_element(By.TAG_NAME, "a")
-            product_link = link_tag.get_attribute("href")
-            # driver.execute_script("window.open('');")  # Open new tab
-            # driver.switch_to.window(driver.window_handles[1])
-            driver.get(product_link)
-            # time.sleep(2)
-            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//h1[@class='pdp-title']")))
-
-            # --- Extract details ---
-            product_id = product_link.split("/")[-2]
-            name = driver.find_element(By.XPATH, "//h1[@class='pdp-title']").text
-            brand = driver.find_element(By.XPATH, "//h1[@class='pdp-title']/following-sibling::h1").text
+async def scrape_product_detail(context, product_link, category_name):
+    for attempt in range(1, MAX_RETRIES + 1):
+        async with semaphore:
+            page = await context.new_page()
             try:
-                price = driver.find_element(By.XPATH, "//span[contains(@class, 'pdp-price')]").text
-                price = ''.join(filter(str.isdigit, price))
-            except:
-                price = "N/A"
-            try:
-                image_url = driver.find_element(By.XPATH, "(//img[contains(@src, 'assets.myntassets.com')])[1]").get_attribute("src")
-            except:
-                image_url = "N/A"
-            print("Page source saved for debugging image:", product_link)
-            with open("debug_image.html", "w", encoding="utf-8") as f:
-                f.write(driver.page_source)
+                await page.goto(product_link, timeout=30000)
+                await page.wait_for_selector("h1.pdp-title", timeout=10000)
 
-            # Try to extract description, rating, and stock status
-            try:
-                description = driver.find_element(By.XPATH, "//div[@class='index-rowInfo']").text
-            except:
+                product_id = product_link.split("/")[-2]
+                name = await page.locator("h1.pdp-title + h1").text_content()
+                brand = await page.locator("h1.pdp-title").text_content()
+
                 try:
-                    description = driver.find_element(By.XPATH, "//div[@class='pdp-productDescriptorsContainer']").text
+                    price_text = await page.locator("span.pdp-price").text_content()
+                    price = ''.join(filter(str.isdigit, price_text))
+                except:
+                    price = "N/A"
+
+                # Multiple image URLs
+                try:
+                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                    await asyncio.sleep(1.5)
+                    image_elements = page.locator("img[src*='assets.myntassets.com']")
+                    image_count = await image_elements.count()
+                    image_urls = []
+                    for i in range(min(image_count, 8)):
+                        src = await image_elements.nth(i).get_attribute("src")
+                        if src and "http" in src and src not in image_urls:
+                            image_urls.append(src)
+                    image_url_combined = "|".join(image_urls)
+                except Exception as e:
+                    print(f"[!] Error fetching images: {e}")
+                    image_url_combined = "N/A"
+
+                try:
+                    description = await page.locator(".pdp-productDescriptorsContainer").text_content()
                 except:
                     description = "N/A"
 
-            try:
-                raw_rating = driver.find_element(By.XPATH, "//div[contains(@class,'index-overallRating')]").text
-                rating = raw_rating.replace("\n", " | ")
-            except:
-                rating = "N/A"
+                try:
+                    rating_raw = await page.locator(".index-overallRating").text_content()
+                    rating = rating_raw.replace("\n", " | ")
+                except:
+                    rating = "N/A"
 
-            try:
-                stock_button = driver.find_element(By.XPATH, "//div[contains(text(),'ADD TO BAG')]")
-                stock_status = "In Stock"
-            except:
-                stock_status = "Out of Stock or Unavailable"
+                try:
+                    if await page.locator("//div[contains(@class, 'pdp-add-to-bag') and contains(text(), 'ADD TO BAG')]").is_visible():
+                        stock_status = "In Stock"
+                    elif await page.locator("//div[contains(text(), 'SOLD OUT')]").is_visible():
+                        stock_status = "Out of Stock"
+                    else:
+                        stock_status = "Out of Stock"
+                except:
+                    stock_status = "Out of Stock"
 
-            print(f"Parsed: {name} | {brand} | ₹{price} | {rating} | {stock_status}")
+                try:
+                    size_elements = await page.locator(".size-buttons-size-button").all_text_contents()
+                    cleaned_sizes = []
+                    for size in size_elements:
+                        size_clean = size.split("Rs")[0].strip()
+                        size_clean = size_clean.split("₹")[0].strip()  # extra fallback
+                        if size_clean:
+                            cleaned_sizes.append(size_clean)
+                    available_sizes = " | ".join(cleaned_sizes) if cleaned_sizes else "N/A"
+                except:
+                    available_sizes = "N/A"
 
-            # --- Save the product data ---
-            all_products.append({
-                "product_id": product_id,
-                "name": name,
-                "brand": brand,
-                "price": price,
-                "image_url": image_url,
-                "description": description,
-                "rating": rating,
-                "stock_status": stock_status,
-                "category": "Men Shoes",
-                "product_link": product_link
-            })
+                fit_keywords = [
+                    "slim fit", "regular fit", "skinny fit", "super skinny fit", "tapered fit", "relaxed fit", "loose fit", 
+                    "straight fit", "comfort fit", "tailored fit", "athletic fit", "narrow fit", "muscle fit", "baggy fit", "bootcut fit"
+                ]
+                try:
+                    fit_type = "N/A"
+                    product_info = await page.locator(".pdp-productDescriptorsContainer").text_content()
+                    product_info_lower = product_info.lower()
+                    for keyword in fit_keywords:
+                        if keyword in product_info_lower:
+                            fit_type = keyword.title()
+                            break
+                except:
+                    fit_type = "N/A"
 
-            # driver.close()  # Close the tab
-            # driver.switch_to.window(driver.window_handles[0])  # Back to main page
+                material_keywords = ["cotton", "polyester", "rayon", "viscose", "linen", "nylon", "modal", "jersey",
+                "spandex", "lycra", "elastane", "silk", "wool", "acrylic", "bamboo", "satin", "chiffon", "georgette", "net", 
+                "blend", "terrycot", "khadi", "denim", "cotton", "polyester", "viscose", "lycra", "elastane", "nylon",
+                "spandex", "twill", "wool", "rayon", "terrycot", "linen", "stretch denim", "chino", "gabardine", "canvas", 
+                "corduroy", "satin", "blend", "leather", "synthetic", "canvas", "mesh", "rubber", "eva", "foam", "nylon",
+                "textile", "suede", "fabric", "knit", "flyknit", "phylon", "tpr", "pu", "polyurethane", "polyester", "plastic", 
+                "air mesh", "netted", "neoprene"]
+                try:
+                    material_type = "N/A"
+                    product_info = await page.locator(".pdp-productDescriptorsContainer").text_content()
+                    product_info_lower = product_info.lower()
+                    for keyword in material_keywords:
+                        if keyword in product_info_lower:
+                            material_type = keyword.title()
+                            break
+                except:
+                    material_type = "N/A"
 
-            driver.back()
-            WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "product-base")))
+                print(f"{product_id} | {name[:40]} | ₹{price} | {rating} | {stock_status} | {category_name} | {available_sizes} | {fit_type} | {material_type}")
 
-        except Exception as e:
-            print("Error:", e)
-            if len(driver.window_handles) > 1:
-                driver.close()
-                driver.switch_to.window(driver.window_handles[0])
-            continue
+                await page.close()
+                return {
+                    "product_id": product_id,
+                    "name": name,
+                    "brand": brand,
+                    "price": price,
+                    "image_urls": image_url_combined,
+                    "description": description,
+                    "rating": rating,
+                    "stock_status": stock_status,
+                    "available_sizes": available_sizes,
+                    "fit_type": fit_type,
+                    "material": material_type,
+                    "category": category_name,
+                    "product_link": product_link
+                }
 
-# --- Save to CSV ---
-driver.quit()
-df = pd.DataFrame(all_products)
-df.to_csv("myntra_men_shoes_detailed.csv", index=False)
-print("Scraping complete! Data saved to myntra_men_shoes_detailed.csv")
+            except Exception as e:
+                await page.close()
+                print(f"[!] Retry {attempt}/{MAX_RETRIES} failed for {product_link}: {e}")
+                await asyncio.sleep(random.uniform(2, 4))
+                continue
+
+    print(f"[x] Skipped: {product_link}")
+    return None
+
+
+async def scrape_listing_page(context, listing_page, page_num, category):
+    url = f"{category['url']}?p={page_num}"
+    print(f"--- Scraping {category['name']} page {page_num} ---")
+    try:
+        await listing_page.goto(url, timeout=30000)
+        await listing_page.wait_for_selector(".product-base", timeout=10000)
+
+        product_links = await listing_page.locator(".product-base a").evaluate_all(
+            "(elements) => elements.map(el => el.href)"
+        )
+        product_links = list(set(product_links))
+        tasks = [scrape_product_detail(context, link, category['name']) for link in product_links]
+        results = await asyncio.gather(*tasks)
+        for r in results:
+            if r:
+                all_products.append(r)
+                print(f"Scraped so far: {len(all_products)}")
+
+        await asyncio.sleep(random.uniform(*DELAY_BETWEEN_REQUESTS))
+    except Exception as e:
+        print(f"[!] Failed listing page {page_num}: {e}")
+
+async def scrape_all_pages_for_category(context, category):
+    page = await context.new_page()
+    print(f"Starting category: {category['name']}")
+    category_products = []
+
+    try:
+        for page_num in range(1, NUM_PAGES + 1):
+            await page.goto(f"{category['url']}?p={page_num}", timeout=30000)
+            await page.wait_for_selector(".product-base", timeout=10000)
+
+            product_links = await page.locator(".product-base a").evaluate_all(
+                "(elements) => elements.map(el => el.href)"
+            )
+            product_links = list(set(product_links))
+
+            tasks = [
+                scrape_product_detail(context, link, category['name'])
+                for link in product_links
+            ]
+            results = await asyncio.gather(*tasks)
+            for r in results:
+                if r:
+                    category_products.append(r)
+
+            await asyncio.sleep(random.uniform(*DELAY_BETWEEN_REQUESTS))
+
+    except Exception as e:
+        print(f"Failed category {category['name']}: {e}")
+
+    await page.close()
+
+    df = pd.DataFrame(category_products)
+    filename = f"{category['name'].replace(' ', '_').lower()}.csv"
+    df.to_csv(filename, index=False)
+    print(f"✅ Saved {len(category_products)} products to {filename}")
+
+async def main():
+    async with async_playwright() as p:
+        browser = await p.firefox.launch(headless=True)
+        context = await browser.new_context()
+        category_tasks = [
+            scrape_all_pages_for_category(context, category)
+            for category in CATEGORIES
+        ]
+        await asyncio.gather(*category_tasks)
+        await browser.close()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
