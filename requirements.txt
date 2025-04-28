@@ -2,3 +2,5 @@ pandas
 selenium
 playwright
 sentence-transformers
+faiss-cpu
+scikit-learn
