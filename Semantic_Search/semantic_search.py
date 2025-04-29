@@ -5,8 +5,8 @@ from sentence_transformers import SentenceTransformer
 
 # Load model and data
 model = SentenceTransformer("all-MiniLM-L6-v2")   # for semantic embedding, converts text (like a user query) into a dense vector representation
-index = faiss.read_index("Semantic Search/faiss_product_index.index")
-metadata = pd.read_csv("Semantic Search/faiss_metadata.csv")
+index = faiss.read_index("Semantic_Search/faiss_product_index.index")
+metadata = pd.read_csv("Semantic_Search/faiss_metadata.csv")
 
 def search_products(query, top_k=20):
     query_vec = model.encode([query])   # Turns the query string into an embedding vector

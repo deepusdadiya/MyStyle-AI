@@ -5,19 +5,19 @@ import random
 import time
 
 CATEGORIES = [
-    {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
-    {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
-    {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
-    {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
-    {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
-    {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
-    {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
-    {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
-    {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
-    {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
+    {"name": "Men Shoes 2", "url": "https://www.myntra.com/men-shoes"},
+    # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
+    # {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
+    # {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
+    # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
+    # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
+    # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
+    # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
+    # {"name": "Women Jeans", "url": "https://www.myntra.com/women-jeans"},
+    # {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
 ]
 NUM_PAGES = 25
-MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
+MAX_CONCURRENT_PAGES = 30         # Parallel detail pages
 MAX_RETRIES = 2                    # Retry a failed page
 DELAY_BETWEEN_REQUESTS = (0.5, 2)  # Range of sleep between tasks
 
@@ -44,15 +44,25 @@ async def scrape_product_detail(context, product_link, category_name):
 
                 # Multiple image URLs
                 try:
+                    for scroll in range(5):
+                        scroll_height = f"(document.body.scrollHeight / 5) * {scroll}"
+                        await page.evaluate(f"window.scrollTo(0, {scroll_height})")
+                        await asyncio.sleep(1.5)  # wait for lazy load
                     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                    await asyncio.sleep(1.5)
-                    image_elements = page.locator("img[src*='assets.myntassets.com']")
+                    await asyncio.sleep(2.5)
+                    image_elements = page.locator("div.image-grid-image")
                     image_count = await image_elements.count()
                     image_urls = []
-                    for i in range(min(image_count, 8)):
-                        src = await image_elements.nth(i).get_attribute("src")
-                        if src and "http" in src and src not in image_urls:
-                            image_urls.append(src)
+                    for i in range(image_count):
+                        style = await image_elements.nth(i).get_attribute("style")
+                        if style and "background-image" in style:
+                            start = style.find('url("') + 5
+                            end = style.find('")', start)
+                            url = style[start:end]
+                            if url and url.startswith("http") and url not in image_urls:
+                                image_urls.append(url)
+                        if len(image_urls) >= 8:  # stop if we have 8 images
+                            break
                     image_url_combined = "|".join(image_urls)
                 except Exception as e:
                     print(f"[!] Error fetching images: {e}")
@@ -198,6 +208,7 @@ async def scrape_all_pages_for_category(context, category):
             for r in results:
                 if r:
                     category_products.append(r)
+                    print(f"Scraped so far: {len(all_products)}")
 
             await asyncio.sleep(random.uniform(*DELAY_BETWEEN_REQUESTS))
 
