@@ -5,8 +5,8 @@ import random
 import time
 
 CATEGORIES = [
-    {"name": "Men Shoes 2", "url": "https://www.myntra.com/men-shoes"},
-    # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
+    # {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
+    {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
     # {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
     # {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
     # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
@@ -17,7 +17,7 @@ CATEGORIES = [
     # {"name": "Women Trousers", "url": "https://www.myntra.com/women-trousers"},
 ]
 NUM_PAGES = 25
-MAX_CONCURRENT_PAGES = 30         # Parallel detail pages
+MAX_CONCURRENT_PAGES = 25         # Parallel detail pages
 MAX_RETRIES = 2                    # Retry a failed page
 DELAY_BETWEEN_REQUESTS = (0.5, 2)  # Range of sleep between tasks
 
@@ -47,7 +47,7 @@ async def scrape_product_detail(context, product_link, category_name):
                     for scroll in range(5):
                         scroll_height = f"(document.body.scrollHeight / 5) * {scroll}"
                         await page.evaluate(f"window.scrollTo(0, {scroll_height})")
-                        await asyncio.sleep(1.5)  # wait for lazy load
+                        await asyncio.sleep(1.5)
                     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                     await asyncio.sleep(2.5)
                     image_elements = page.locator("div.image-grid-image")
@@ -208,7 +208,7 @@ async def scrape_all_pages_for_category(context, category):
             for r in results:
                 if r:
                     category_products.append(r)
-                    print(f"Scraped so far: {len(all_products)}")
+                    print(f"Scraped so far: {len(category_products)}")
 
             await asyncio.sleep(random.uniform(*DELAY_BETWEEN_REQUESTS))
 
