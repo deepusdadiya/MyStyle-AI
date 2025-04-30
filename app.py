@@ -5,6 +5,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.preprocessing import normalize
 import faiss
 import ast
+from Semantic_Search.semantic_search import extract_filters_with_llm
 
 # Load everything
 @st.cache_resource
@@ -23,11 +24,37 @@ def load_resources():
 model, index, metadata, full_data = load_resources()
 
 # Semantic Search
-def search_products(query, top_k=20):
+# def search_products(query, top_k=20):
+#     query_vec = model.encode([query])
+#     query_vec = normalize(query_vec, axis=1).astype("float32")
+#     scores, indices = index.search(query_vec, top_k)
+#     return metadata.iloc[indices[0]]
+
+def search_products(query, top_k=30):
+    filters = extract_filters_with_llm(query)
+    gender = filters["gender"]
+    category = filters["category"]
+    price_min = filters["price_min"]
+    price_max = filters["price_max"]
+
     query_vec = model.encode([query])
     query_vec = normalize(query_vec, axis=1).astype("float32")
     scores, indices = index.search(query_vec, top_k)
-    return metadata.iloc[indices[0]]
+
+    results = metadata.iloc[indices[0]].copy()
+    results = results.merge(full_data, on="product_id", how="left")
+
+    # Post-filter using LLM-extracted filters
+    if gender:
+        results = results[results["category"].str.lower().str.contains(gender)]
+    if category:
+        results = results[results["category"].str.lower().str.contains(category)]
+    if price_min is not None and price_max is not None:
+        results = results[
+            results["price"].apply(lambda x: isinstance(x, (int, float))) &
+            (results["price"] >= price_min) & (results["price"] <= price_max)
+        ]
+    return results.head(20)
 
 # UI
 # st.set_page_config(page_title="SmartShop: Semantic Search", layout="wide")
