@@ -38,10 +38,12 @@ query = st.text_input("What are you looking for?", placeholder="e.g., casual red
 if query:
     results = search_products(query)
     st.subheader("🔍 Top Matching Products")
-
     for _, row in results.iterrows():
-        product_row = full_data[full_data["product_id"] == row["product_id"]].iloc[0]
-
+        match = full_data[full_data["product_id"] == row["product_id"]]
+        if match.empty:
+            st.warning(f"Product ID {row['product_id']} not found in product CSVs.")
+            continue  # Skip to next
+        product_row = match.iloc[0]
         # Layout
         col1, col2 = st.columns([1, 3])
         with col1:
