@@ -6,10 +6,10 @@ import time
 
 CATEGORIES = [
     # {"name": "Men Shoes", "url": "https://www.myntra.com/men-shoes"},
-    {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
+    # {"name": "Men Shirts", "url": "https://www.myntra.com/men-shirts"},
     # {"name": "Men T-Shirts", "url": "https://www.myntra.com/men-tshirts"},
     # {"name": "Men Jeans", "url": "https://www.myntra.com/men-jeans"},
-    # {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
+    {"name": "Men Trousers", "url": "https://www.myntra.com/men-trousers"},
     # {"name": "Women Shoes", "url": "https://www.myntra.com/women-shoes"},
     # {"name": "Women Shirts", "url": "https://www.myntra.com/women-shirts"},
     # {"name": "Women T-Shirts", "url": "https://www.myntra.com/women-tshirts"},
@@ -192,6 +192,7 @@ async def scrape_all_pages_for_category(context, category):
 
     try:
         for page_num in range(1, NUM_PAGES + 1):
+            print(f"--- Scraping {category['name']} page {page_num} ---")
             await page.goto(f"{category['url']}?p={page_num}", timeout=30000)
             await page.wait_for_selector(".product-base", timeout=10000)
 
