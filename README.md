@@ -100,7 +100,7 @@ mystyle-ai/
 
 ```bash
 git clone https://github.com/yourusername/smartshop-ai.git
-cd smartshop-ai
+cd mystyle-ai
 pip install -r requirements.txt
 streamlit run ui/streamlit_app.py
 ```
