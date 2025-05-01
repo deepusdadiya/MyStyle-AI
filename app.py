@@ -1,3 +1,8 @@
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+import asyncio
+import nest_asyncio
+nest_asyncio.apply()
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,10 +11,16 @@ from sklearn.preprocessing import normalize
 import faiss
 import ast
 from Semantic_Search.semantic_search import extract_filters_with_llm
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # Load everything
 @st.cache_resource
 def load_resources():
+    from sentence_transformers import SentenceTransformer  # 👈 move inside
+    import faiss
+    import pandas as pd
+
     model = SentenceTransformer("all-MiniLM-L6-v2")
     index = faiss.read_index("Semantic_Search/faiss_product_index.index")
     metadata = pd.read_csv("Semantic_Search/faiss_metadata.csv")
@@ -20,6 +31,7 @@ def load_resources():
         ]
     ])
     return model, index, metadata, full_data
+
 
 model, index, metadata, full_data = load_resources()
 
@@ -44,7 +56,6 @@ def search_products(query, top_k=30):
     results = metadata.iloc[indices[0]].copy()
     results = results.merge(full_data, on="product_id", how="left")
 
-    # Post-filter using LLM-extracted filters
     if gender:
         results = results[results["category"].str.lower().str.contains(gender)]
     if category:
@@ -86,3 +97,11 @@ if query:
             st.markdown(f"💰 **Price**: ₹{product_row['price']}")
             st.markdown(f"⭐ **Rating**: {product_row['rating']}")
             st.markdown("---")
+
+
+if __name__ == "__main__":
+    import nest_asyncio
+    nest_asyncio.apply()
+    import warnings
+    warnings.filterwarnings("ignore", category=UserWarning)
+    os.environ["TOKENIZERS_PARALLELISM"] = "false"

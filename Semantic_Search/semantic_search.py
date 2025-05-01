@@ -3,10 +3,14 @@ import json
 import os
 import faiss
 import pandas as pd
+import certifi
+from dotenv import load_dotenv
+from openai import OpenAIError
 from sklearn.preprocessing import normalize
 from sentence_transformers import SentenceTransformer
 
 load_dotenv()
+os.environ["SSL_CERT_FILE"] = certifi.where()
 # Load model and data
 model = SentenceTransformer("all-MiniLM-L6-v2")   # for semantic embedding, converts text (like a user query) into a dense vector representation
 index = faiss.read_index("Semantic_Search/faiss_product_index.index")
@@ -33,25 +37,30 @@ Output: {"gender": "men", "category": "shoes", "price_min": 3000, "price_max": 4
 
 Input: "cheap women jeans"
 Output: {"gender": "women", "category": "jeans", "price_min": null, "price_max": null}
+
+Input: "lightweight running shoes under 1000 rupees"
+Output: {"gender": "null", "category": "shoes", "price_min": null, "price_max": 1000}
 """
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  
 def extract_filters_with_llm(query: str):
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": query}
-        ],
-        temperature=0
-    )
-
-    content = response.choices[0].message.content
     try:
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": query}
+            ],
+            temperature=0
+        )
+        content = response.choices[0].message.content
         return json.loads(content)
+    except openai.APIConnectionError as e:
+        print(f"API connection error: {e}")
+    except OpenAIError as e:
+        print(f"OpenAI error: {e}")
     except Exception as e:
-        print("❌ JSON parse failed:", e)
-        return {"gender": None, "category": None, "price_min": None, "price_max": None}
-
+        print("JSON parse failed or other error:", e)
+    return {"gender": None, "category": None, "price_min": None, "price_max": None}
 
 # Example
 print(search_products("lightweight running shoes under 3000"))
