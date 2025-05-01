@@ -13,6 +13,7 @@ df = pd.read_csv("Data/embedded_products.csv")
 # Load the embedded products CSV
 df = pd.read_csv("Data/embedded_products.csv")
 df = df.dropna(subset=["vector_embed"])      # Drop rows with NaN in vector_embed
+df = df.drop_duplicates(subset=["product_id"], keep="first")
 
 # Converting stringified vectors into actual lists
 df["vector_embed"] = df["vector_embed"].apply(ast.literal_eval)    # Convert string to list

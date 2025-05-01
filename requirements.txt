@@ -5,3 +5,6 @@ sentence-transformers
 faiss-cpu
 scikit-learn
 streamlit
+watchdog==6.0.0
+openai==1.76.2
+python-dotenv==1.1.0
