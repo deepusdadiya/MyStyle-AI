@@ -6,5 +6,7 @@ faiss-cpu
 scikit-learn
 streamlit
 watchdog==6.0.0
-openai==1.76.2
 python-dotenv==1.1.0
+langchain==0.3.24
+langchain_community==0.3.23
+openai==1.76.2

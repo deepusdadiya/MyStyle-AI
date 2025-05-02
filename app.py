@@ -1,6 +1,6 @@
 import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-import asyncio
+os.environ["STREAMLIT_SERVER_ENABLE_FILE_WATCHER"] = "false"  # Disables problematic inspection
 import nest_asyncio
 nest_asyncio.apply()
 import streamlit as st
@@ -8,12 +8,11 @@ import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.preprocessing import normalize
-import faiss
-import ast
-from Semantic_Search.semantic_search import extract_filters_with_llm
+from Semantic_Search.semantic_search import extract_filters_with_krutrim
 import warnings
+import torch
 warnings.filterwarnings("ignore", category=UserWarning)
-
+torch.classes.__path__ = []
 # Load everything
 @st.cache_resource
 def load_resources():
@@ -35,15 +34,8 @@ def load_resources():
 
 model, index, metadata, full_data = load_resources()
 
-# Semantic Search
-# def search_products(query, top_k=20):
-#     query_vec = model.encode([query])
-#     query_vec = normalize(query_vec, axis=1).astype("float32")
-#     scores, indices = index.search(query_vec, top_k)
-#     return metadata.iloc[indices[0]]
-
 def search_products(query, top_k=30):
-    filters = extract_filters_with_llm(query)
+    filters = extract_filters_with_krutrim(query)
     gender = filters["gender"]
     category = filters["category"]
     price_min = filters["price_min"]
@@ -68,7 +60,6 @@ def search_products(query, top_k=30):
     return results.head(20)
 
 # UI
-# st.set_page_config(page_title="SmartShop: Semantic Search", layout="wide")
 st.title("🛍️ SmartShop: Semantic Product Search")
 
 query = st.text_input("What are you looking for?", placeholder="e.g., casual red shoes under ₹1500")
