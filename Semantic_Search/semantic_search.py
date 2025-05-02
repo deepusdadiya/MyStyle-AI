@@ -1,7 +1,8 @@
 import httpx
 import json
 import re
-
+import os
+KRUTRIM_API_KEY=os.getenv("KRUTRIM_API_KEY")
 def extract_filters_with_krutrim(query: str):
     prompt = f'''
                 Query: {query}
@@ -26,7 +27,7 @@ def extract_filters_with_krutrim(query: str):
     try:
         response = httpx.post(
             url="https://cloud.olakrutrim.com/v1/chat/completions",
-            headers={"Authorization": "Bearer CbrbxuMumUB64GQIDlOugf"},
+            headers={"Authorization": "Bearer {KRUTRIM_API_KEY}"},
             json={
                 "model": "DeepSeek-R1",
                 "messages": [
