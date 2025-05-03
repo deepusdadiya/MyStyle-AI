@@ -2,7 +2,8 @@ import httpx
 import json
 import re
 import os
-KRUTRIM_API_KEY=os.getenv("KRUTRIM_API_KEY")
+KRUTRIM_API_KEY = os.getenv("KRUTRIM_API_KEY")
+print(KRUTRIM_API_KEY)
 def extract_filters_with_krutrim(query: str):
     prompt = f'''
                 User said: "{query}"
@@ -27,7 +28,7 @@ def extract_filters_with_krutrim(query: str):
     try:
         response = httpx.post(
             url="https://cloud.olakrutrim.com/v1/chat/completions",
-            headers={"Authorization": "Bearer {KRUTRIM_API_KEY}"},
+            headers={"Authorization": "Bearer CbrbxuMumUB64GQIDlOugf"},
             json={
                 "model": "DeepSeek-R1",
                 "messages": [
@@ -49,6 +50,7 @@ def extract_filters_with_krutrim(query: str):
         # Extract only the JSON block
         match = re.search(r"\{[\s\S]*?\}", output)
         if match:
+            print("✅ JSON found in output:", match.group(0))
             return json.loads(match.group(0))
         else:
             print("⚠️ No JSON found in output")
