@@ -5,7 +5,7 @@ import os
 KRUTRIM_API_KEY=os.getenv("KRUTRIM_API_KEY")
 def extract_filters_with_krutrim(query: str):
     prompt = f'''
-                Query: {query}
+                User said: "{query}"
                 You are a helpful assistant that extracts product filters from a user query for a fashion e-commerce site.
                 Return the following fields in valid JSON:
                 - gender: "men" or "women" or null

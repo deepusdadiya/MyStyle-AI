@@ -48,15 +48,22 @@ def search_products(query, top_k=30):
     results = metadata.iloc[indices[0]].copy()
     results = results.merge(full_data, on="product_id", how="left")
 
+    # Deduplicate
+    results = results.drop_duplicates(subset="product_id", keep="first")
+
+    # Category & Gender filter
     if gender:
-        results = results[results["category"].str.lower().str.contains(gender)]
+        results = results[results["category"].str.lower().str.contains(gender.lower())]
+
     if category:
-        results = results[results["category"].str.lower().str.contains(category)]
+        results = results[results["category"].str.lower().str.contains(category.lower())]
+
+    # Price filter with numeric conversion
+    results["price"] = pd.to_numeric(results["price"], errors="coerce")
+    results = results.dropna(subset=["price"])
     if price_min is not None and price_max is not None:
-        results = results[
-            results["price"].apply(lambda x: isinstance(x, (int, float))) &
-            (results["price"] >= price_min) & (results["price"] <= price_max)
-        ]
+        results = results[(results["price"] >= price_min) & (results["price"] <= price_max)]
+
     return results.head(20)
 
 # UI
