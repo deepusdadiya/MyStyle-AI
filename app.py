@@ -34,8 +34,9 @@ def load_resources():
 
 model, index, metadata, full_data = load_resources()
 
-def search_products(query, top_k=30):
+def search_products(query, top_k=100):
     filters = extract_filters_with_krutrim(query)
+    print(filters)
     gender = filters["gender"]
     category = filters["category"]
     price_min = filters["price_min"]
@@ -61,8 +62,12 @@ def search_products(query, top_k=30):
     # Price filter with numeric conversion
     results["price"] = pd.to_numeric(results["price"], errors="coerce")
     results = results.dropna(subset=["price"])
-    if price_min is not None and price_max is not None:
-        results = results[(results["price"] >= price_min) & (results["price"] <= price_max)]
+
+    if price_min is not None:
+        results = results[results["price"] >= price_min]
+
+    if price_max is not None:
+        results = results[results["price"] <= price_max]
 
     return results.head(20)
 
