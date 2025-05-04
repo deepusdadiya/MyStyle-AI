@@ -36,7 +36,6 @@ model, index, metadata, full_data = load_resources()
 
 def search_products(query, top_k=100):
     filters = extract_filters_with_krutrim(query)
-    print(filters)
     gender = filters["gender"]
     category = filters["category"]
     price_min = filters["price_min"]

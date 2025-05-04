@@ -2,8 +2,10 @@ import httpx
 import json
 import re
 import os
+from dotenv import load_dotenv
+load_dotenv()
 KRUTRIM_API_KEY = os.getenv("KRUTRIM_API_KEY")
-print(KRUTRIM_API_KEY)
+
 def extract_filters_with_krutrim(query: str):
     prompt = f'''
                 User said: "{query}"
@@ -28,7 +30,7 @@ def extract_filters_with_krutrim(query: str):
     try:
         response = httpx.post(
             url="https://cloud.olakrutrim.com/v1/chat/completions",
-            headers={"Authorization": "Bearer CbrbxuMumUB64GQIDlOugf"},
+            headers={"Authorization": f"Bearer {KRUTRIM_API_KEY}"},
             json={
                 "model": "DeepSeek-R1",
                 "messages": [
@@ -42,7 +44,7 @@ def extract_filters_with_krutrim(query: str):
         )
 
         if response.status_code != 200:
-            print("❌ API failed:", response.status_code, response.text)
+            print("API failed:", response.status_code, response.text)
             return {"gender": None, "category": None, "price_min": None, "price_max": None}
 
         output = response.json()["choices"][0]["message"]["content"]
@@ -50,10 +52,10 @@ def extract_filters_with_krutrim(query: str):
         # Extract only the JSON block
         match = re.search(r"\{[\s\S]*?\}", output)
         if match:
-            print("✅ JSON found in output:", match.group(0))
+            print("JSON found in output:", match.group(0))
             return json.loads(match.group(0))
         else:
-            print("⚠️ No JSON found in output")
+            print("No JSON found in output")
             return {"gender": None, "category": None, "price_min": None, "price_max": None}
 
     except Exception as e:
