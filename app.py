@@ -13,6 +13,7 @@ import warnings
 import torch
 warnings.filterwarnings("ignore", category=UserWarning)
 torch.classes.__path__ = []
+
 # Load everything
 @st.cache_resource
 def load_resources():
@@ -48,10 +49,8 @@ def search_products(query, top_k=100):
     results = metadata.iloc[indices[0]].copy()
     results = results.merge(full_data, on="product_id", how="left")
 
-    # Deduplicate
     results = results.drop_duplicates(subset="product_id", keep="first")
 
-    # Category & Gender filter
     if gender:
         results = results[results["category"].str.lower().str.contains(gender.lower())]
 
@@ -70,7 +69,7 @@ def search_products(query, top_k=100):
 
     return results.head(20)
 
-# UI
+# Streamlit UI
 st.title("🛍️ SmartShop: Semantic Product Search")
 
 query = st.text_input("What are you looking for?", placeholder="e.g., casual red shoes under ₹1500")
