@@ -32,7 +32,6 @@ def load_resources():
     ])
     return model, index, metadata, full_data
 
-
 model, index, metadata, full_data = load_resources()
 
 def search_products(query, top_k=100):
@@ -81,9 +80,8 @@ if query:
         match = full_data[full_data["product_id"] == row["product_id"]]
         if match.empty:
             st.warning(f"Product ID {row['product_id']} not found in product CSVs.")
-            continue  # Skip to next
+            continue
         product_row = match.iloc[0]
-        # Layout
         col1, col2 = st.columns([1, 3])
         with col1:
             image_urls = str(product_row.get("image_urls", "")).split("|")
