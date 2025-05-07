@@ -40,14 +40,11 @@ def search_products(query, top_k=100):
     category = filters["category"]
     price_min = filters["price_min"]
     price_max = filters["price_max"]
-
     query_vec = model.encode([query])
     query_vec = normalize(query_vec, axis=1).astype("float32")
     scores, indices = index.search(query_vec, top_k)
-
     results = metadata.iloc[indices[0]].copy()
     results = results.merge(full_data, on="product_id", how="left")
-
     results = results.drop_duplicates(subset="product_id", keep="first")
 
     if gender:
@@ -56,7 +53,6 @@ def search_products(query, top_k=100):
     if category:
         results = results[results["category"].str.lower().str.contains(category.lower())]
 
-    # Price filter with numeric conversion
     results["price"] = pd.to_numeric(results["price"], errors="coerce")
     results = results.dropna(subset=["price"])
 

@@ -3,8 +3,10 @@ import json
 import re
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 KRUTRIM_API_KEY = os.getenv("KRUTRIM_API_KEY")
+
 
 def extract_filters_with_krutrim(query: str):
     prompt = f'''
@@ -49,7 +51,6 @@ def extract_filters_with_krutrim(query: str):
 
         output = response.json()["choices"][0]["message"]["content"]
 
-        # Extract only the JSON block
         match = re.search(r"\{[\s\S]*?\}", output)
         if match:
             print("JSON found in output:", match.group(0))
