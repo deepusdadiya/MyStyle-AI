@@ -11,6 +11,7 @@ category_files = [
     "women_shoes.csv", "women_shirts.csv", "women_t-shirts.csv", "women_jeans.csv", "women_trousers.csv"
 ]
 
+
 for filename in category_files:
     input_path = os.path.join(input_dir, filename)
     output_path = os.path.join(output_dir, f"deduped_{filename}")
