@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.engine import URL
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from config.config import database_name, db_username, db_password, db_host, db_port, schema
 
 DATABASE_USER: str = db_username
@@ -55,4 +55,13 @@ class DBConnector(object):
         return self.dbconn
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.dbconn.close()
+        engine.dispose()
+
+
+try:
+    with DBConnector() as engine:
+        with engine.connect() as conn:
+            version = conn.execute(text("SELECT version();")).fetchone()
+            print(f"PostgreSQL connection successful. DB version: {version[0][:17]}")
+except Exception as e:
+    print("Failed to connect to PostgreSQL:", str(e))
