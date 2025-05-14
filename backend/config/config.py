@@ -3,12 +3,12 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-database_name  = os.getenv('POSTGRES_AIML_DATABASE')
-db_username  = os.getenv('POSTGRES_RW_USER')
-db_password = os.getenv('POSTGRES-HCMP-RW-PASSWD')
-db_host = os.getenv('PGBOUNCER_HOST')
-db_port = os.getenv('AIML_PGBOUNCER_PORT')
-schema = os.getenv('POSTGRES_DOMAIN_SCHEMA')
+database_name  = os.getenv('POSTGRES_DATABASE')
+db_username  = os.getenv('POSTGRES_USER')
+db_password = os.getenv('POSTGRES_PASSWD')
+db_host = os.getenv('POSTGRES_HOST')
+db_port = os.getenv('POSTGRES_PORT')
+schema = os.getenv('POSTGRES_SCHEMA')
 
 
 def ExtractDBDetails(db_type, db_name):
