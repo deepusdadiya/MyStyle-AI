@@ -5,8 +5,8 @@ from sklearn.preprocessing import normalize
 import ast
 import glob
 import os
-print(os.getcwd())  # Shows current working directory
-print(os.listdir("Data"))  # Lists contents of folder
+# print(os.getcwd())  # Shows current working directory
+# print(os.listdir("Data"))  # Lists contents of folder
 
 df = pd.read_csv("Data/embedded_products.csv")
 
