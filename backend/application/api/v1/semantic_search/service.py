@@ -5,19 +5,27 @@ from sklearn.preprocessing import normalize
 import numpy as np
 import ast
 from alchemist.postgresql.resource import DBConnection
-import httpx
 import re
+import faiss
 import pandas as pd
+from groq import Groq
+from sqlalchemy import text
+import math
 
-KRUTRIM_API_KEY = os.getenv("KRUTRIM_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SEMANTIC_DIR = os.path.join(BASE_DIR, "..", "Semantic_Search")
+EMBEDDED_CSV = os.path.join(BASE_DIR, "..", "Semantic_Search", "embedded_products.csv")
 
-INDEX_PATH = os.path.join(SEMANTIC_DIR, "faiss_product_index.index")
-METADATA_PATH = os.path.join(SEMANTIC_DIR, "faiss_metadata.csv")
-EMBEDDED_PRODUCTS_CSV = os.path.join(SEMANTIC_DIR, "embedded_products.csv")
-metadata = pd.read_csv(METADATA_PATH)
+df = pd.read_csv(EMBEDDED_CSV)
+df = df.dropna(subset=["vector_embed"]).drop_duplicates(subset=["product_id"])
+df["vector_embed"] = df["vector_embed"].apply(ast.literal_eval)
+
+embedding_matrix = normalize(np.vstack(df["vector_embed"].values).astype("float32"), axis=1)
+index = faiss.IndexFlatIP(embedding_matrix.shape[1])
+index.add(embedding_matrix)
+
+metadata = df[["product_id", "text_data"]]
 
 CATEGORY_TABLE_MAP = {
     "shoes": ["products.men_shoes", "products.women_shoes"],
@@ -27,7 +35,7 @@ CATEGORY_TABLE_MAP = {
     "trousers": ["products.men_trousers", "products.women_trousers"]
 }
 
-def extract_filters_with_krutrim(query: str):
+def extract_filters_with_groq(query: str):
     prompt = f'''
                 User said: "{query}"
                 You are a helpful assistant that extracts product filters from a user query for a fashion e-commerce site.
@@ -49,26 +57,18 @@ def extract_filters_with_krutrim(query: str):
 '''
 
     try:
-        response = httpx.post(
-            url="https://cloud.olakrutrim.com/v1/chat/completions",
-            headers={"Authorization": f"Bearer {KRUTRIM_API_KEY}"},
-            json={
-                "model": "DeepSeek-R1",
-                "messages": [
-                    {"role": "system", "content": "You are a product filter extractor for a fashion shopping assistant."},
-                    {"role": "user", "content": prompt}
-                ],
-                "temperature": 0,
-            },
-            verify=False,
-            timeout=60.0
+        client = Groq(api_key=GROQ_API_KEY)
+
+        response = client.chat.completions.create(
+            model="deepseek-r1-distill-llama-70b",
+            messages=[
+                {"role": "system", "content": "You are a product filter extractor for a fashion shopping assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0,
         )
 
-        if response.status_code != 200:
-            print("API failed:", response.status_code, response.text)
-            return {"gender": None, "category": None, "price_min": None, "price_max": None}
-
-        output = response.json()["choices"][0]["message"]["content"]
+        output = response.choices[0].message.content
 
         match = re.search(r"\{[\s\S]*?\}", output)
         if match:
@@ -91,6 +91,22 @@ def encode_query(model, query: str):
     return normalize(vec, axis=1).astype("float32")
 
 
+def safe_float(val):
+    try:
+        if isinstance(val, str):
+            val = val.strip()
+            if val.lower() in ["", "n/a", "nan", "none", "-"]:
+                return None
+        if val is None:
+            return None
+        num = float(val)
+        if math.isnan(num) or math.isinf(num):
+            return None
+        return num
+    except (ValueError, TypeError):
+        return None
+
+    
 def fetch_products_from_db(product_ids: list[str], category: str | None = None) -> list[dict]:
     if not product_ids:
         return []
@@ -98,9 +114,7 @@ def fetch_products_from_db(product_ids: list[str], category: str | None = None) 
     placeholders = ','.join([f"'{pid}'" for pid in product_ids])
     tables_to_search = CATEGORY_TABLE_MAP.get(category.lower(), []) if category else []
 
-    # tables_to_search = CATEGORY_TABLE_MAP.get(category.lower(), [])
     if not tables_to_search:
-        # Default: check all product tables if category is unknown
         tables_to_search = sum(CATEGORY_TABLE_MAP.values(), [])
 
     query_parts = [
@@ -113,31 +127,53 @@ def fetch_products_from_db(product_ids: list[str], category: str | None = None) 
     combined_query = " UNION ALL ".join(query_parts)
 
     with DBConnection.get_connection() as session:
-        rows = session.execute(combined_query).fetchall()
-        return [dict(row) for row in rows]
+        rows = session.execute(text(combined_query)).mappings().fetchall()
+    
+    cleaned_rows = []
+    for row in rows:
+        row_dict = dict(row)
+        row_dict["rating"] = safe_float(row_dict.get("rating", None))
+        row_dict["price"] = safe_float(row_dict.get("price", None))
+        row_dict["product_id"] = str(row_dict.get("product_id", ""))
+        row_dict["name"] = row_dict.get("name") or ""
+        row_dict["brand"] = row_dict.get("brand") or ""
+        row_dict["category"] = row_dict.get("category") or ""
+        row_dict["image_urls"] = row_dict.get("image_urls") or ""
+
+        cleaned_rows.append(row_dict)
+    print("🔍 FINAL CLEANED RATINGS:", [type(row["rating"]) for row in cleaned_rows])
+
+    for row in cleaned_rows:
+        print("DEBUG rating:", row["rating"], type(row["rating"]))
+
+    for row in cleaned_rows:
+        if not isinstance(row["rating"], (float, type(None))):
+            print("❌ Invalid rating:", row["rating"])
+    for row in cleaned_rows:
+        print("✅ Validated:", row["product_id"], row["rating"], type(row["rating"]))
+
+    return cleaned_rows
 
 
 def search_semantic_products(query: str, top_k: int = 10):
-    import faiss  # lazy import inside function
+    import faiss
     from sentence_transformers import SentenceTransformer
-    # Load and rebuild index dynamically
-    df = pd.read_csv(EMBEDDED_PRODUCTS_CSV)
+
+    df = pd.read_csv(EMBEDDED_CSV)
     df = df.dropna(subset=["vector_embed"]).drop_duplicates(subset=["product_id"])
     df["vector_embed"] = df["vector_embed"].apply(ast.literal_eval)
     embedding_matrix = normalize(np.vstack(df["vector_embed"].values).astype("float32"), axis=1)
 
-    dimension = embedding_matrix.shape[1]
-    index = faiss.IndexFlatIP(dimension)
+    index = faiss.IndexFlatIP(embedding_matrix.shape[1])
     index.add(embedding_matrix)
-
     metadata = df[["product_id", "text_data"]]
 
-    # Proceed with search logic
-    filters = extract_filters_with_krutrim(query)
-    query_vec = SentenceTransformer("all-MiniLM-L6-v2").encode([query])
+    filters = extract_filters_with_groq(query)
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    query_vec = model.encode([query])
     query_vec = normalize(query_vec, axis=1).astype("float32")
-
     scores, indices = index.search(query_vec, top_k)
+
     matched_ids = metadata.iloc[indices[0]]["product_id"].tolist()
     product_records = fetch_products_from_db(matched_ids, filters["category"])
 
@@ -152,9 +188,26 @@ def search_semantic_products(query: str, top_k: int = 10):
             (result_df["price"] >= filters["price_min"]) &
             (result_df["price"] <= filters["price_max"])
         ]
+
     if result_df.empty:
         return []
-    return result_df.head(top_k).fillna("").to_dict(orient="records")
+
+    for idx, row in result_df.iterrows():
+        result_df.at[idx, "rating"] = safe_float(row.get("rating"))
+        result_df.at[idx, "price"] = safe_float(row.get("price"))
+
+        for col in ["name", "brand", "category", "image_urls"]:
+            val = row.get(col)
+            result_df.at[idx, col] = val if isinstance(val, str) else ""
+
+    final_data = result_df.head(top_k).reset_index(drop=True).to_dict(orient="records")
+    for row in final_data:
+        for key in ["rating", "price"]:
+            val = row.get(key)
+            if isinstance(val, float) and (math.isnan(val) or math.isinf(val)):
+                row[key] = None
+
+    return final_data
 
 
 if __name__ == "__main__":
