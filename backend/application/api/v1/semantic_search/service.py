@@ -11,6 +11,11 @@ import pandas as pd
 from groq import Groq
 from sqlalchemy import text
 import math
+from fastapi import HTTPException
+import httpx
+
+from dotenv import load_dotenv
+load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
@@ -35,52 +40,58 @@ CATEGORY_TABLE_MAP = {
     "trousers": ["products.men_trousers", "products.women_trousers"]
 }
 
-def extract_filters_with_groq(query: str):
-    prompt = f'''
-                User said: "{query}"
-                You are a helpful assistant that extracts product filters from a user query for a fashion e-commerce site.
-                Return the following fields in valid JSON:
-                - gender: "men" or "women" or null
-                - price_min: integer or null
-                - price_max: integer or null
-                - category: one of "shoes", "shirts", "t-shirts", "jeans", "trousers", or null
+def extract_filters_with_groq_httpx(query: str):
+    prompt = f"""
+User said: "{query}"
+You are a helpful assistant that extracts product filters from a user query for a fashion shopping site.
+Return the following fields in valid JSON:
+- gender: "men" or "women" or null
+- price_min: integer or null
+- price_max: integer or null
+- category: one of "shoes", "shirts", "t-shirts", "jeans", "trousers", or null
 
-                Examples:
-                Input: "show me men shoes between 3000 to 4000"
-                Output: {{"gender": "men", "category": "shoes", "price_min": 3000, "price_max": 4000}}
+Examples:
+Input: "cheap women jeans"
+Output: {{"gender": "women", "category": "jeans", "price_min": null, "price_max": null}}
 
-                Input: "cheap women jeans"
-                Output: {{"gender": "women", "category": "jeans", "price_min": null, "price_max": null}}
-
-                Input: "lightweight running shoes under 1000 rupees"
-                Output: {{"gender": null, "category": "shoes", "price_min": null, "price_max": 1000}}
-'''
+Now extract filters for this input: "{query}"
+"""
 
     try:
-        client = Groq(api_key=GROQ_API_KEY)
+        if not GROQ_API_KEY:
+            raise ValueError("Missing GROQ_API_KEY environment variable")
 
-        response = client.chat.completions.create(
-            model="deepseek-r1-distill-llama-70b",
-            messages=[
-                {"role": "system", "content": "You are a product filter extractor for a fashion shopping assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0,
+        response = httpx.post(
+            url="https://api.groq.com/openai/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {GROQ_API_KEY}",
+                "Content-Type": "application/json"
+            },
+            json={
+                "model": "deepseek-r1-distill-llama-70b",
+                "messages": [
+                    {"role": "system", "content": "You are a product filter extractor for a fashion shopping assistant."},
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0
+            },
+            timeout=30.0
         )
 
-        output = response.choices[0].message.content
-
-        match = re.search(r"\{[\s\S]*?\}", output)
-        if match:
-            print("JSON found in output:", match.group(0))
-            return json.loads(match.group(0))
-        else:
-            print("No JSON found in output")
+        if response.status_code != 200:
+            print("❌ Groq API failed:", response.status_code, response.text)
             return {"gender": None, "category": None, "price_min": None, "price_max": None}
 
+        content = response.json()["choices"][0]["message"]["content"]
+
+        match = re.search(r"\{[\s\S]*?\}", content)
+        if match:
+            return json.loads(match.group(0))
+
     except Exception as e:
-        print("LLM parsing failed:", e)
-        return {"gender": None, "category": None, "price_min": None, "price_max": None}
+        print("❌ LLM parsing failed:", repr(e))
+
+    return {"gender": None, "category": None, "price_min": None, "price_max": None}
 
 
 # Normalize embeddings if needed
@@ -168,13 +179,16 @@ def search_semantic_products(query: str, top_k: int = 10):
     index.add(embedding_matrix)
     metadata = df[["product_id", "text_data"]]
 
-    filters = extract_filters_with_groq(query)
+    filters = extract_filters_with_groq_httpx(query)
+    print("🧠 Extracted Filters:", filters)
     model = SentenceTransformer("all-MiniLM-L6-v2")
     query_vec = model.encode([query])
     query_vec = normalize(query_vec, axis=1).astype("float32")
+    print("🔎 Query Vector Norm:", np.linalg.norm(query_vec))
     scores, indices = index.search(query_vec, top_k)
 
     matched_ids = metadata.iloc[indices[0]]["product_id"].tolist()
+    print("🎯 Matched IDs:", matched_ids)
     product_records = fetch_products_from_db(matched_ids, filters["category"])
 
     result_df = pd.DataFrame(product_records)
@@ -190,7 +204,9 @@ def search_semantic_products(query: str, top_k: int = 10):
         ]
 
     if result_df.empty:
-        return []
+        print("No results after filtering. Returning unfiltered top-K")
+        result_df = pd.DataFrame(product_records)
+
 
     for idx, row in result_df.iterrows():
         result_df.at[idx, "rating"] = safe_float(row.get("rating"))
@@ -206,6 +222,9 @@ def search_semantic_products(query: str, top_k: int = 10):
             val = row.get(key)
             if isinstance(val, float) and (math.isnan(val) or math.isinf(val)):
                 row[key] = None
+
+    if not final_data:
+        raise HTTPException(status_code=404, detail="No matching products found.")
 
     return final_data
 
